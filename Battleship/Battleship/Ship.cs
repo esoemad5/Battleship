@@ -8,7 +8,17 @@ namespace Battleship
 {
     class Ship
     {
-        // 5 Kinds of ships, different lengths
-        // Carrier 5, Battleship 4, Submarine 3, Destroyer 3, Patrol Boat 2 (remembered all that from childhood, wow)
+        // Boolean parameter for active/sunk.
+        // 5 Kinds of ships, different lengths.
+        // Carrier 5, Battleship 4, Submarine 3, Destroyer 3, Patrol Boat 2 (remembered all that from childhood, wow).
+        // Store nose and tail locations instead of whole boat.
+        // Function that checks for hits needs to look between all ship pairs?
+        /* For setting up the game:
+         * Constructor sets them to default locations.
+         * Function to move ships around the board.
+         * Arrows to move, 'r' to rotate.
+         * Don't ever allow overlap, even in setup phase.
+         * How to handle overlap when rotating?
+         */
     }
 }

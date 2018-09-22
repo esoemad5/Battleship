@@ -13,5 +13,6 @@ namespace Battleship
          * 1 array of booleans for active/sunk
          * 2 arrays of Ship objects (another way to access location and dammage)
          */
+         // 2D array of player's misses/hits/un-attacked, should this be part of the board class?
     }
 }
