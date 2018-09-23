@@ -35,5 +35,16 @@ namespace Battleship
         {
 
         }
+        public void CheckIfNoRemainingShips()
+        {
+            foreach(Ship ship in ships)
+            {
+                if (!ship.isSunk)
+                {
+                    return;
+                }
+            }
+            hasActiveShips = false;
+        }
     }
 }
