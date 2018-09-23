@@ -93,7 +93,7 @@ namespace Battleship
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
-                            location[i][0]--;
+                            location[i][1]--;
                         }
                     }
 
@@ -103,7 +103,7 @@ namespace Battleship
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
-                            location[i][0]++;
+                            location[i][1]++;
                         }
                     }
                     break;
@@ -112,7 +112,7 @@ namespace Battleship
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
-                            location[i][1]--;
+                            location[i][0]--;
                         }
                     }
                     break;
@@ -121,7 +121,7 @@ namespace Battleship
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
-                            location[i][1]++ ;
+                            location[i][0]++ ;
                         }
                     }
                     break;
@@ -130,9 +130,16 @@ namespace Battleship
                     break;
             }
         }
-        public void Rotate()
+        public void Rotate() // Will make Ship horizontal or vertical.
         {
+            if (location[0][0] == location[1][0]) // Horizontal to vertical
+            {
 
+            }
+            else // Vertical to horizontal
+            {
+
+            }
         }
         public void CheckIfSunk()
         {
