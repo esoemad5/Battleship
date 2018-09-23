@@ -8,8 +8,8 @@ namespace Battleship
 {
     class Player
     {
-        string Name;
-        Board hitmiss;
+        string name;
+        Board hitmiss; // May need to change
         Ship[] ships;
         bool hasActiveShips;
         /* How to store player Ships?
@@ -21,12 +21,13 @@ namespace Battleship
 
         public Player (string name)
         {
-            Name = name;
-            ships[0] = new Ship();
-            ships[1] = new Ship();
-            ships[2] = new Ship();
-            ships[3] = new Ship();
-            ships[4] = new Ship();
+            this.name = name;
+            ships = new Ship[5];
+            ships[0] = new Ship(5, "Carrier");
+            ships[1] = new Ship(4, "Battleship");
+            ships[2] = new Ship(3, "Destroyer");
+            ships[3] = new Ship(3, "Submarine");
+            ships[4] = new Ship(2, "Patrol Boat"); 
             // hitmiss = new ???();
             hasActiveShips = true;
         }

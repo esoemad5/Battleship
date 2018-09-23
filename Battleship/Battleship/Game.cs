@@ -26,8 +26,10 @@ namespace Battleship
          */
         public Game()
         {
-            player1 = new Player();
-            player2 = new Player();
+            string player1Name = Console.ReadLine();
+            string player2Name = Console.ReadLine();
+            player1 = new Player(player1Name);
+            player2 = new Player(player2Name);
         }
         private void PlayGame()
         {

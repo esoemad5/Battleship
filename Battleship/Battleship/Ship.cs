@@ -27,7 +27,8 @@ namespace Battleship
          */
         public Ship(int length, string name)
         {
-
+            this.name = name;
+            location = new int[length][][];
         }
         public void Move(ConsoleKeyInfo direction)
         {
