@@ -84,7 +84,7 @@ namespace Battleship
             }
             return false;
         }
-        public void Move(string direction)
+        public void Move(string direction) // Done, UNTESTED
         {
             switch (direction)
             {
@@ -99,10 +99,31 @@ namespace Battleship
 
                     break;
                 case "DownArrow":
+                    if (!AtBottomEdge())
+                    {
+                        for (int i = 0; i < location.Length; i++)
+                        {
+                            location[i][0]++;
+                        }
+                    }
                     break;
                 case "LeftArrow":
+                    if (!AtLeftEdge())
+                    {
+                        for (int i = 0; i < location.Length; i++)
+                        {
+                            location[i][1]--;
+                        }
+                    }
                     break;
                 case "RightArrow":
+                    if (!AtRightEdge())
+                    {
+                        for (int i = 0; i < location.Length; i++)
+                        {
+                            location[i][1]++ ;
+                        }
+                    }
                     break;
                 default:
                     Console.WriteLine("Error in Ship.Move input was not a direction.");
