@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class Board
+    class Board // Static class or abstract class?
     {
         char[][] board; // probably a bad variable name.
         // Haven't written anything in this class yet. Get rid of it? Just use the Game class???

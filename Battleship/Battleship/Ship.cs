@@ -10,7 +10,7 @@ namespace Battleship
     {
         bool isSunk;
         int length;
-        int[][][] location; // 1 2D array for each square it occupies.
+        int[][][] location; // 1 2D array for each square it occupies. null if hit?
         string name;
         // Boolean parameter for active/sunk.
         // 5 Kinds of Ships, different lengths.
