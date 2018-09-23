@@ -9,8 +9,10 @@ namespace Battleship
     class Ship
     {
         bool isSunk;
-        int length;
-        int[][][] location; // 1 2D array for each square it occupies. null if hit?
+        int length; // may not need this
+        int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right.
+        //null doesn't work because damaged part of Ship has to move with the rest of it.
+        bool[] sectionIsDamaged;
         string name;
         // Boolean parameter for active/sunk.
         // 5 Kinds of Ships, different lengths.
@@ -27,12 +29,40 @@ namespace Battleship
          */
         public Ship(int length, string name)
         {
+            isSunk = false;
+            this.length = length;
+            location = new int[length][];
+            sectionIsDamaged = new bool[length];
+            for(int i = 0; i < sectionIsDamaged.Length; i++)
+            {
+                sectionIsDamaged[i] = false;
+            }
             this.name = name;
-            location = new int[length][][];
+            
         }
-        public void Move(ConsoleKeyInfo direction)
+        public void Move(string direction)
         {
-
+            switch (direction)
+            {
+                case "UpArrow":
+                    foreach (int[] section in location)
+                    {
+                        if (section != null && section[0] != 0)
+                        {
+                            section[0]--;
+                        }
+                    }
+                    break;
+                case "DownArrow":
+                    break;
+                case "LeftArrow":
+                    break;
+                case "RightArrow":
+                    break;
+                default:
+                    Console.WriteLine("Error in Ship.Move input was not a direction.");
+                    break;
+            }
         }
         public void Rotate()
         {
