@@ -9,7 +9,6 @@ namespace Battleship
     class Ship
     {
         bool isSunk;
-        int length; // may not need this
         int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right.
         //null doesn't work because damaged part of Ship has to move with the rest of it.
         bool[] sectionIsDamaged;
@@ -30,7 +29,6 @@ namespace Battleship
         public Ship(int length, string name)
         {
             isSunk = false;
-            this.length = length;
             location = new int[length][];
             sectionIsDamaged = new bool[length];
             for(int i = 0; i < sectionIsDamaged.Length; i++)
