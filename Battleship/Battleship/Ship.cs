@@ -18,6 +18,7 @@ namespace Battleship
          * Function to move Ships around the board.
          * Arrows to move, 'r' to rotate.
          * Don't ever allow overlap, even in setup phase.
+         * Allow overlap, but dont allow game to start if there is overlap?
          * How to handle overlap when rotating?
          */
     }

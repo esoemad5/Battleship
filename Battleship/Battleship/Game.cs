@@ -14,6 +14,8 @@ namespace Battleship
         /* Create players.
          */
         /* Players set up Boats.
+         * Make 5 Ships in default positions. Put them into Player's Ship[].
+         * Player can cycle through array with 'a' and 'd', rotate with 'r' move with arrow keys.
          */
         /* Players play the Game.
          * while(player1.ships != all sunk && player2.ships != all sunk)
