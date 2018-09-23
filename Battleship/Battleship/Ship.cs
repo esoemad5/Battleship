@@ -51,6 +51,39 @@ namespace Battleship
             }
             return false;
         }
+        private bool AtBottomEdge()
+        {
+            for (int i = 0; i < location.Length; i++)
+            {
+                if (location[i][0] == 20)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool AtLeftEdge()
+        {
+            for (int i = 0; i < location.Length; i++)
+            {
+                if (location[i][1] == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool AtRightEdge()
+        {
+            for (int i = 0; i < location.Length; i++)
+            {
+                if (location[i][1] == 20)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public void Move(string direction)
         {
             switch (direction)
