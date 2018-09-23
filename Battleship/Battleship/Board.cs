@@ -9,5 +9,8 @@ namespace Battleship
     class Board
     {
         // Haven't written anything in this class yet. Get rid of it? Just use the Game class???
+        // Store 2 arrays per Board: 1 for Ships, 1 for hit/miss. The real battleship boards are 2 20x20 grids.
+        // Or just 1 array for hit/miss and get Ship info from Player. Better to do Player.ships than Player.Board.ships
+        // Ships are on the Board, but ultimately, the Ships belong to the Player (the Player HAS Ships).
     }
 }

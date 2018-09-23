@@ -13,14 +13,14 @@ namespace Battleship
 
         /* Create players.
          */
-        /* Players set up boats.
+        /* Players set up Boats.
          */
-        /* Players play the game.
+        /* Players play the Game.
          * while(player1.ships != all sunk && player2.ships != all sunk)
          * {showBoard(player1); player1.attack(input, player2.ships);
          * showBoard(player2); player2.attack(input, player1.ships);}
-         * Player.attack looks at other player's ship array, displays results then edits own player's array?
-         * Store some/all arrays in the game class? The boards are part of the game and the players interact with them.
+         * Player.attack looks at oponent's Ship array, displays results then edits own Player's array?
+         * Store some/all arrays in the game class? The Boards are part of the game and the Players interact with them.
          */
     }
 }
