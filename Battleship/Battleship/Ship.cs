@@ -11,6 +11,7 @@ namespace Battleship
         bool isSunk;
         int length;
         int[][][] location; // 1 2D array for each square it occupies.
+        string name;
         // Boolean parameter for active/sunk.
         // 5 Kinds of Ships, different lengths.
         // Carrier 5, Battleship 4, Submarine 3, Destroyer 3, Patrol Boat 2 (remembered all that from childhood, wow).
@@ -24,15 +25,19 @@ namespace Battleship
          * Allow overlap, but dont allow game to start if there is overlap?
          * How to handle overlap when rotating?
          */
-        public void move(ConsoleKeyInfo direction)
+        public Ship(int length, string name)
         {
 
         }
-        public void rotate()
+        public void Move(ConsoleKeyInfo direction)
         {
 
         }
-        public void checkIfSunk()
+        public void Rotate()
+        {
+
+        }
+        public void CheckIfSunk()
         {
 
         }
