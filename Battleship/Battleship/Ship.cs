@@ -84,7 +84,7 @@ namespace Battleship
             }
             return false;
         }
-        public void Move(string direction) // Done, UNTESTED
+        public void Move(string direction) // Done, UNTESTED.
         {
             switch (direction)
             {
@@ -130,20 +130,43 @@ namespace Battleship
                     break;
             }
         }
-        public void Rotate() // Will make Ship horizontal or vertical.
+        public void Rotate() // Done, UNTESTED. Ship.location[0] has to be the closest point to (0, 0)!!!
         {
             if (location[0][0] == location[1][0]) // Horizontal to vertical
             {
-
+                if (!AtBottomEdge())
+                {
+                    for (int i = 1; i < location.Length; i++)
+                    {
+                        location[i][0] -= i;
+                        location[i][1] -= i;
+                    }
+                }
+                
             }
             else // Vertical to horizontal
             {
-
+                if (!AtRightEdge())
+                {
+                    for (int i = 1; i < location.Length; i++)
+                    {
+                        location[i][0] += i;
+                        location[i][1] += i;
+                    }
+                }
+                
             }
         }
-        public void CheckIfSunk()
+        public void CheckIfSunk() // Done, UNTESTED.
         {
-
+            foreach(bool b in sectionIsDamaged)
+            {
+                if(b == false)
+                {
+                    return;
+                }
+            }
+            isSunk = true;
         }
     }
 }
