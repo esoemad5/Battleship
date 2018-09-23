@@ -40,18 +40,30 @@ namespace Battleship
             this.name = name;
             
         }
+        private bool AtTopEdge()
+        {
+            for(int i = 0; i< location.Length; i++)
+            {
+                if(location[i][0] == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public void Move(string direction)
         {
             switch (direction)
             {
                 case "UpArrow":
-                    foreach (int[] section in location)
+                    if (!AtTopEdge())
                     {
-                        if (section != null && section[0] != 0)
+                        for (int i = 0; i < location.Length; i++)
                         {
-                            section[0]--;
+                            location[i][0]--;
                         }
                     }
+
                     break;
                 case "DownArrow":
                     break;
