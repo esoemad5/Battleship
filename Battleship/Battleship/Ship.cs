@@ -35,7 +35,7 @@ namespace Battleship
             this.name = name;
             isHorizontal = false;
             UpdateNoseAndTail();
-            this.boardSize = boardSize;
+            this.boardSize = boardSize - 1;
             
         }
         private bool AtTopEdge()
@@ -76,6 +76,17 @@ namespace Battleship
             for (int i = 0; i < location.Length; i++)
             {
                 if (location[i][0] == boardSize)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool OutOfBounds()
+        {
+            foreach(int[] square in location)
+            {
+                if(square[0] < 0 || square[0] > boardSize || square[1] < 0 || square[1] > boardSize)
                 {
                     return true;
                 }

@@ -10,6 +10,7 @@ namespace Battleship
     {
         Player player1;
         Player player2;
+        int boardSize;
 
         /* Create players.
          */
@@ -26,10 +27,12 @@ namespace Battleship
          */
         public Game()
         {
+            boardSize = 20;
+            // Console.WriteLine(); boardSize = Console.ReadLine(); if we wanted to change the size of the board
             string player1Name = Console.ReadLine();
             string player2Name = Console.ReadLine();
-            player1 = new Player(player1Name);
-            player2 = new Player(player2Name);
+            player1 = new Player(player1Name, boardSize);
+            player2 = new Player(player2Name, boardSize);
         }
         private void PlayGame()
         {
