@@ -3,6 +3,34 @@
  * It has been saved here for reference and in case any part of it needed in further tests.
  */
 
+ 
+// Exploring options for displaying Boards
+int p = 5;
+p = p / 2;
+Console.WriteLine("{0}", p);
+char[][] test = new char[20][];
+for(int i = 0; i < test.Length; i++)
+{
+	test[i] = new char[20];
+	for(int j = 0; j<test[i].Length; j++)
+	{
+		test[i][j] = '-';
+	}
+}
+Console.Write("  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20"); //60 characters, 3 per number
+Console.WriteLine();
+foreach(char[] array in test)
+{
+	Console.Write("A ");
+	foreach(char b in array)
+	{
+		Console.Write(b);
+		Console.Write("  ");
+	}
+	Console.WriteLine();
+
+}
+			
 // Spacing for displaying boards
 for(int i = 0; i < 20; i++)
 {

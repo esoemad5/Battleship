@@ -23,29 +23,65 @@ namespace Battleship
         private char[][] hitsMisses;
         private char[][] shipPositions;
         private int boardSize;
-        
+
+        private string firstBoardLabel;
+        private string secondBoardLabel;
+        int spacesBetweenBoards;
         public Board(int boardSize)
         {
+            hitsMisses = new char[boardSize][];
+            shipPositions = new char[boardSize][];
             for(int i = 0; i < boardSize; i++)
             {
                 for(int j = 0; j < boardSize; j++)
                 {
-                    hitsMisses[i][j] = '.';
-                    shipPositions[i][j] = '.';
+                    hitsMisses[i] = new char[boardSize];
+                    shipPositions[i] = new char[boardSize];
+                    hitsMisses[i][j] = '-';
+                    shipPositions[i][j] = '-';
                 }
             }
             this.boardSize = boardSize;
+            firstBoardLabel = "Hits/Misses";
+            secondBoardLabel = "Ships";
+            int spacesBetweenBoards = 5;
         }
-        public void displayBoard()
+        private void MakeHeaders()
         {
-            for (int i = 0; i < boardSize; i++)
+            // The character length of each board-half is 3*boardSize
+            int halfwayThroughBoardHalf = (3 * boardSize) / 2;
+
+            int spacesBeforeFirstBoardLabel = halfwayThroughBoardHalf - (firstBoardLabel.Length / 2);
+            for (int i = 0; i < spacesBeforeFirstBoardLabel; i++)
             {
-                for (int j = 0; j < boardSize; j++)
+                Console.Write(" ");
+            }
+            Console.Write(firstBoardLabel);
+            int spaceBeforeSecondBoardLabel = spacesBeforeFirstBoardLabel + spacesBetweenBoards + halfwayThroughBoardHalf - (secondBoardLabel.Length / 2);
+            for (int i = 0; i < spaceBeforeSecondBoardLabel; i++)
+            {
+                Console.Write(" ");
+            }
+            Console.Write(secondBoardLabel);
+            Console.WriteLine();
+        }
+        private void WriteABoard(char[][] boardHalf) // This one is no good
+        {
+            for (int i = 0; i < boardHalf.Length; i++)
+            {
+                for (int j = 0; j < boardHalf.Length; j++)
                 {
-                    hitsMisses[i][j] = '.';
-                    shipPositions[i][j] = '.';
+                    Console.Write(boardHalf[i][j]);
+                    Console.Write("  ");
                 }
             }
+        }
+        public void DisplayBoard()
+        {
+            MakeHeaders();
+            WriteABoard(hitsMisses);
+            WriteABoard(shipPositions);
+
         }
     }
 }
