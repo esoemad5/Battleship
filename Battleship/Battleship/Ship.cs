@@ -11,9 +11,9 @@ namespace Battleship
     {
         private int boardSize;
         public bool isSunk;
-        public int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right. (x,y)
+        public int[][] location; // An array of length 2 arrays. (0,0) is top left, (20, 20) is bottom right. [ [x, y], [x, y], [x, y],... ]
         public bool[] sectionIsDamaged;
-        string name;
+        public string name;
         public bool isHorizontal;
         public int[] nose;
         public int[] tail;

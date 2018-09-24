@@ -13,6 +13,13 @@ namespace Battleship
         // Store 2 arrays per Board: 1 for Ships, 1 for hit/miss. The real battleship boards are 2 20x20 grids.
         // Or just 1 array for hit/miss and get Ship info from Player. Better to do Player.ships than Player.Board.ships
         // Ships are on the Board, but ultimately, the Ships belong to the Player (the Player HAS Ships).
+
+
+        /* New Board outline (after writing most of Game and Ship).
+         * 2 char[][] one for Player's Ships and one for Player's hits/misses.
+         * Player.Attack edits Player's hit/miss array and opponents ships array.
+         * Display board will always display both (even in setup part of game).
+         */
         public void MakeHitMissBoard()
         {
 

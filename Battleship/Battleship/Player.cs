@@ -28,7 +28,7 @@ namespace Battleship
             ships[2] = new Ship(3, "Destroyer", boardSize);
             ships[3] = new Ship(3, "Submarine", boardSize);
             ships[4] = new Ship(2, "Patrol Boat", boardSize); 
-            // hitmiss = new ???();
+            // TODO: hitmiss = new ???(); use a Board???
             hasActiveShips = true;
         }
         public void Attack(int[] square, Ship[] opponentsShips)// How to convert input (ex. B4) to the array location?
