@@ -27,13 +27,24 @@ namespace Battleship
             ships[1] = new Ship(4, "Battleship", boardSize);
             ships[2] = new Ship(3, "Destroyer", boardSize);
             ships[3] = new Ship(3, "Submarine", boardSize);
-            ships[4] = new Ship(2, "Patrol Boat", boardSize); 
+            ships[4] = new Ship(2, "Patrol Boat", boardSize);
+            MoveShipsToDefaultLocations();
             // TODO: hitmiss = new ???(); use a Board???
             hasActiveShips = true;
         }
+        private void MoveShipsToDefaultLocations()
+        {
+            for (int i = 1; i < ships.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    ships[i].Move("RightArrow");
+                }
+            }
+        }
         public void Attack(int[] square, Player opponent)// How to convert input (ex. B4) to the array location?
         {
-            int squareThatWasAttacked = 5;
+            int squareThatWasAttacked = 5; // just to make compiler happy
             // TODO:  get info on where the player wants to attack and update both player's boards.
 
             board.updateHitsMisses(squareThatWasAttacked);
@@ -52,7 +63,11 @@ namespace Battleship
         }
         public void SetUpShips()
         {
+            // Put all ships on the board, not overlaping
 
+            // Allow the player to move/rotate ships and cycle through them
+            // Player can press 'p' to finish and 'play' after confirming y/n
+            // If there are overlaps, pressing 'p' will display a message saying so.
         }
     }
 }
