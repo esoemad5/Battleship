@@ -46,8 +46,8 @@ namespace Battleship
                 for (int j = i+1; j < ships.Length; j++) // j is another Ship
                 {
                     /* smrt solution. Ship length does not affect computational efficiency.
-                     * If both horizontal, check if in same row(y-coordinate; .location[1]),
-                     * then check if nose/tail of j is between i's nose/tail(.location[0])
+                     * If both horizontal, check if in same row(y-coordinate; .location[0][1]),
+                     * then check if nose/tail of j is between i's nose/tail(.location[0 and length-1][0])
                      * 
                      * If both vertical, check if in same column (.location[0]),
                      * then check if nose/tail of j is between i's nose/tail (.location[1])
@@ -58,6 +58,34 @@ namespace Battleship
                      * Vertical: comapre all of j's y (ship[j].location[k][1]) to i's y
                      *  if a common row is found, if(j's x > i's nose && j's x < i's tail): overlap!
                      */
+
+                    if (ships[i].isHorizontal && ships[j].isHorizontal)
+                    {
+                        if(ships[j].location[0][1] == ships[i].location[0][1])
+                        {
+                            if(ships[j].location[0][0] < ships[i].location[ships[i].location.Length][0] && ships[j].location[0][0] > ships[i].location[0][0])
+                            {
+                                return true;
+                            }
+                            if (ships[j].location[ships[j].location.Length][0] < ships[i].location[ships[i].location.Length][0] && ships[j].location[0][0] > ships[i].location[0][0])
+                            {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    else if(!ships[i].isHorizontal && !ships[j].isHorizontal)
+                    {
+
+                    }
+                    else if (ships[j].isHorizontal)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
 
 
                     /* Slow solution

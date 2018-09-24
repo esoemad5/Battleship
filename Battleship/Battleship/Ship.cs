@@ -14,6 +14,8 @@ namespace Battleship
         public bool[] sectionIsDamaged;
         string name;
         public bool isHorizontal;
+        public int[] nose;
+        public int[] tail;
         public Ship(int length, string name)
         {
             isSunk = false;
@@ -30,6 +32,7 @@ namespace Battleship
             }
             this.name = name;
             isHorizontal = false;
+            UpdateNoseAndTail();
             
         }
         private bool AtTopEdge()
@@ -121,6 +124,7 @@ namespace Battleship
                     Console.WriteLine("Error in Ship.Move input was not a direction.");
                     break;
             }
+            UpdateNoseAndTail();
         }
         public void Rotate() // Done, UNTESTED. Ship.location[0] has to be the closest point to (0, 0)!!!
         {
@@ -150,6 +154,7 @@ namespace Battleship
                 }
                 
             }
+            UpdateNoseAndTail();
         }
         public void CheckIfSunk() // Done, UNTESTED.
         {
@@ -161,6 +166,11 @@ namespace Battleship
                 }
             }
             isSunk = true;
+        }
+        private void UpdateNoseAndTail()
+        {
+            nose = location[0];
+            tail = location[location.Length];
         }
     }
 }
