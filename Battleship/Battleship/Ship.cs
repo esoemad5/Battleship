@@ -10,9 +10,10 @@ namespace Battleship
     class Ship
     {
         public bool isSunk;
-        public int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right.
+        public int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right. (x,y)
         public bool[] sectionIsDamaged;
         string name;
+        public bool isHorizontal;
         public Ship(int length, string name)
         {
             isSunk = false;
@@ -28,6 +29,7 @@ namespace Battleship
                 sectionIsDamaged[i] = false;
             }
             this.name = name;
+            isHorizontal = false;
             
         }
         private bool AtTopEdge()
@@ -130,6 +132,7 @@ namespace Battleship
                     {
                         location[i][0] -= i;
                         location[i][1] -= i;
+                        isHorizontal = false;
                     }
                 }
                 
@@ -142,6 +145,7 @@ namespace Battleship
                     {
                         location[i][0] += i;
                         location[i][1] += i;
+                        isHorizontal = true;
                     }
                 }
                 

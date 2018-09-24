@@ -39,8 +39,7 @@ namespace Battleship
         {
 
         }
-        private bool ShipsOverlap(Ship[] ships) // Do 4 nested for-loops constitute a red flag?
-            // can do a nose-tail thing. topology ftw. both horizontal/vertical or mixed matters? or just do all at same time?
+        private bool ShipsOverlap(Ship[] ships)
         {
             for(int i = 0; i < ships.Length; i++) // i is one Ship
             {
