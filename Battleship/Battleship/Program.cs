@@ -12,22 +12,24 @@ namespace Battleship
         {
             Console.WriteLine("---------------------------");
             Ship testShip = new Ship(4, "Battleship", 20);
-            ShowLocation(testShip);
-            for(int i = 0; i < 1; i++)
+            ShowLocation(testShip.location);
+            for(int i = 0; i < 30; i++)
             {
-                testShip.Move("LeftArrow");
+                testShip.Move("RightArrow");
             }
             
-            ShowLocation(testShip);
+            ShowLocation(testShip.location);
+            /*
             testShip.Rotate();
             ShowLocation(testShip);
             testShip.Rotate();
             ShowLocation(testShip);
+            */
 
         }
-        static void ShowLocation(Ship ship)
+        public static void ShowLocation(int[][] input)
         {
-            foreach (int[] square in ship.location)
+            foreach (int[] square in input)
             {
                 Console.WriteLine("({0}, {1})", square[0], square[1]);
                 
