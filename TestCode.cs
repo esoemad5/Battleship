@@ -3,6 +3,16 @@
  * It has been saved here for reference and in case any part of it needed in further tests.
  */
 
+ // Useful function when the Board class is unfinished.
+ static void ShowLocation(Ship ship)
+{
+	foreach (int[] square in ship.location)
+	{
+		Console.WriteLine("({0}, {1})", square[0], square[1]);
+		
+	}
+	Console.WriteLine("---------------------------");
+}
 // How to check for arrow keys.
 for(int i = 0; i < 5; i++){
 	ConsoleKeyInfo a = Console.ReadKey();

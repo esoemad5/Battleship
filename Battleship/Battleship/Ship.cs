@@ -20,8 +20,9 @@ namespace Battleship
         {
             isSunk = false;
             location = new int[length][];
-            for(int i = 0; i < location.Length; i++)
+            for(int i = 0; i < location.Length; i++)// initilize ships to vertical in the top left
             {
+                location[i] = new int[2];
                 location[i][0] = 0;
                 location[i][1] = i;
             }
@@ -79,7 +80,7 @@ namespace Battleship
             }
             return false;
         }
-        public void Move(string direction) // Done, UNTESTED.
+        public void Move(string direction) // Done, tested, works!
         {
             switch (direction)
             {
@@ -121,21 +122,21 @@ namespace Battleship
                     }
                     break;
                 default:
-                    Console.WriteLine("Error in Ship.Move input was not a direction.");
+                    Console.WriteLine("Error in Ship.Move: input was not a direction.");
                     break;
             }
             UpdateNoseAndTail();
         }
         public void Rotate() // Done, UNTESTED. Ship.location[0] has to be the closest point to (0, 0)!!!
         {
-            if (location[0][0] == location[1][0]) // Horizontal to vertical
+            if (location[0][1] == location[1][1]) // Horizontal to vertical
             {
                 if (!AtBottomEdge())
                 {
                     for (int i = 1; i < location.Length; i++)
                     {
                         location[i][0] -= i;
-                        location[i][1] -= i;
+                        location[i][1] += i;
                         isHorizontal = false;
                     }
                 }
@@ -148,7 +149,7 @@ namespace Battleship
                     for (int i = 1; i < location.Length; i++)
                     {
                         location[i][0] += i;
-                        location[i][1] += i;
+                        location[i][1] -= i;
                         isHorizontal = true;
                     }
                 }
@@ -170,7 +171,7 @@ namespace Battleship
         private void UpdateNoseAndTail()
         {
             nose = location[0];
-            tail = location[location.Length];
+            tail = location[location.Length-1];
         }
     }
 }
