@@ -29,7 +29,7 @@ namespace Battleship
         private int spacesBetweenBoards;
         private int spacesPerEntry;
 
-        private readonly char[] alphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' }; // Boards can be up to 26x26
+        private readonly char[] alphabeticCoordinates = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' }; // Boards can be up to 26x26
         public Board(int boardSize)
         {
             hitsMisses = new char[boardSize][];
@@ -47,7 +47,7 @@ namespace Battleship
 
             this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
-            secondBoardLabel = "Ships";
+            secondBoardLabel = "Ship Positions";
             spacesBetweenBoards = 7;
             spacesPerEntry = 4;
         }
@@ -100,9 +100,32 @@ namespace Battleship
                 Console.Write(" ");
             }
         }
+        private void WriteSpacesBetweenEntries(int entryLength)
+        {
+            for (int i = 0; i < spacesPerEntry - entryLength; i++)
+            {
+                Console.Write(" ");
+            }
+        }
         private void WriteBoardsAndAlphabeticCoordinates()
         {
-
+            for (int i = 0; i < boardSize; i++)
+            {
+                Console.Write(alphabeticCoordinates[i]);
+                WriteSpacesBetweenEntries(alphabeticCoordinates[i].Length);
+                Console.WriteLine();
+                /*
+                for (int j = 0; j < hitsMisses.Length; j++)
+                {
+                    Console.Write(hitsMisses[j]);
+                }
+                WriteSpacesBetweenBoards();
+                for (int j = 0; j < shipPositions.Length; j++)
+                {
+                    Console.Write(shipPositions[j]);
+                }
+                */
+            }
         }
         public void Display()
         {
@@ -111,6 +134,7 @@ namespace Battleship
             WriteSpacesBetweenBoards();
             WriteNumericalCoordinates();
             Console.WriteLine();
+            WriteBoardsAndAlphabeticCoordinates();
         }
     }
 }
