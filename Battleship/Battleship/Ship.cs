@@ -95,10 +95,11 @@ namespace Battleship
         }
         public void Move(string direction) // Done, tested, works!
         {
+            int[][] oldLocation = location;
             switch (direction)
             {
                 case "UpArrow":
-                    if (!AtTopEdge())
+                    if (/*!AtTopEdge()*/ true)
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
@@ -108,7 +109,7 @@ namespace Battleship
 
                     break;
                 case "DownArrow":
-                    if (!AtBottomEdge())
+                    if (/*!AtBottomEdge()*/ true)
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
@@ -117,7 +118,7 @@ namespace Battleship
                     }
                     break;
                 case "LeftArrow":
-                    if (!AtLeftEdge())
+                    if (/*!AtLeftEdge()*/ true)
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
@@ -126,7 +127,7 @@ namespace Battleship
                     }
                     break;
                 case "RightArrow":
-                    if (!AtRightEdge())
+                    if (/*!AtRightEdge()*/ true)
                     {
                         for (int i = 0; i < location.Length; i++)
                         {
@@ -137,6 +138,11 @@ namespace Battleship
                 default:
                     Console.WriteLine("Error in Ship.Move: input was not a direction.");
                     break;
+            }
+            Console.WriteLine(OutOfBounds());
+            if (OutOfBounds())
+            {
+                location = oldLocation;
             }
             UpdateNoseAndTail();
         }
