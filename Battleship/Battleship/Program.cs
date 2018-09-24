@@ -11,7 +11,7 @@ namespace Battleship
         static void Main(string[] args)
         {
             Board board = new Board(20);
-            board.DisplayBoard();
+            board.Display();
 
         }
         public static void ShowLocation(int[][] input)

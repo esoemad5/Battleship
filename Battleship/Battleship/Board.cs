@@ -26,7 +26,10 @@ namespace Battleship
 
         private string firstBoardLabel;
         private string secondBoardLabel;
-        int spacesBetweenBoards;
+        private int spacesBetweenBoards;
+        private int spacesPerEntry;
+
+        private readonly char[] alphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' }; // Boards can be up to 26x26
         public Board(int boardSize)
         {
             hitsMisses = new char[boardSize][];
@@ -41,47 +44,69 @@ namespace Battleship
                     shipPositions[i][j] = '-';
                 }
             }
+
             this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ships";
-            int spacesBetweenBoards = 5;
+            spacesBetweenBoards = 7;
+            spacesPerEntry = 4;
         }
-        private void MakeHeaders()
+        private void WriteHeaders()
         {
             // The character length of each board-half is 3*boardSize
-            int halfwayThroughBoardHalf = (3 * boardSize) / 2;
+            int halfwayTHroughBoardSection =  spacesPerEntry* boardSize / 2;
 
-            int spacesBeforeFirstBoardLabel = halfwayThroughBoardHalf - (firstBoardLabel.Length / 2);
+            int spacesBeforeFirstBoardLabel = halfwayTHroughBoardSection - (firstBoardLabel.Length / 2);
             for (int i = 0; i < spacesBeforeFirstBoardLabel; i++)
             {
                 Console.Write(" ");
             }
             Console.Write(firstBoardLabel);
-            int spaceBeforeSecondBoardLabel = spacesBeforeFirstBoardLabel + spacesBetweenBoards + halfwayThroughBoardHalf - (secondBoardLabel.Length / 2);
+            int spaceBeforeSecondBoardLabel = spacesBeforeFirstBoardLabel + spacesBetweenBoards + halfwayTHroughBoardSection - (secondBoardLabel.Length / 2);
             for (int i = 0; i < spaceBeforeSecondBoardLabel; i++)
             {
                 Console.Write(" ");
             }
             Console.Write(secondBoardLabel);
+
             Console.WriteLine();
         }
-        private void WriteABoard(char[][] boardHalf) // This one is no good
+        private void WriteNumericalCoordinates()
         {
-            for (int i = 0; i < boardHalf.Length; i++)
+            for(int i = 0; i < boardSize; i++)
             {
-                for (int j = 0; j < boardHalf.Length; j++)
+                if(i < 9)
                 {
-                    Console.Write(boardHalf[i][j]);
-                    Console.Write("  ");
+                    Console.Write("{0}", i + 1);
+                    for(int j = 0; j < spacesPerEntry -1; j++)
+                    {
+                        Console.Write(" ");
+                    }
                 }
+                else
+                {
+                    Console.Write("{0}", i + 1);
+                    for (int j = 0; j < spacesPerEntry - 2; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                } 
             }
         }
-        public void DisplayBoard()
+        private void WriteSpacesBetweenBoards()
         {
-            MakeHeaders();
-            WriteABoard(hitsMisses);
-            WriteABoard(shipPositions);
-
+            for (int i = 0; i < spacesBetweenBoards; i++)
+            {
+                Console.Write(" ");
+            }
+        }
+        public void Display()
+        {
+            WriteHeaders();
+            WriteNumericalCoordinates();
+            WriteSpacesBetweenBoards();
+            WriteNumericalCoordinates();
+            Console.WriteLine();
         }
     }
 }
