@@ -100,6 +100,10 @@ namespace Battleship
                 Console.Write(" ");
             }
         }
+        private void WriteBoardsAndAlphabeticCoordinates()
+        {
+
+        }
         public void Display()
         {
             WriteHeaders();
