@@ -9,6 +9,7 @@ namespace Battleship
     // The class does NOT check for overlap with other Ships. This should probably be done in the Game class.
     class Ship
     {
+        private int boardSize;
         public bool isSunk;
         public int[][] location; // an array of length 2 arrays, or null if that spot is hit. (0,0) is top left, (20, 20) is bottom right. (x,y)
         public bool[] sectionIsDamaged;
@@ -16,7 +17,7 @@ namespace Battleship
         public bool isHorizontal;
         public int[] nose;
         public int[] tail;
-        public Ship(int length, string name)
+        public Ship(int length, string name, int boardSize)
         {
             isSunk = false;
             location = new int[length][];
@@ -34,13 +35,14 @@ namespace Battleship
             this.name = name;
             isHorizontal = false;
             UpdateNoseAndTail();
+            this.boardSize = boardSize;
             
         }
         private bool AtTopEdge()
         {
             for(int i = 0; i< location.Length; i++)
             {
-                if(location[i][0] == 0)
+                if(location[i][1] == 0)
                 {
                     return true;
                 }
@@ -51,7 +53,7 @@ namespace Battleship
         {
             for (int i = 0; i < location.Length; i++)
             {
-                if (location[i][0] == 20)
+                if (location[i][1] == boardSize)
                 {
                     return true;
                 }
@@ -62,7 +64,7 @@ namespace Battleship
         {
             for (int i = 0; i < location.Length; i++)
             {
-                if (location[i][1] == 0)
+                if (location[i][0] == 0)
                 {
                     return true;
                 }
@@ -73,7 +75,7 @@ namespace Battleship
         {
             for (int i = 0; i < location.Length; i++)
             {
-                if (location[i][1] == 20)
+                if (location[i][0] == boardSize)
                 {
                     return true;
                 }

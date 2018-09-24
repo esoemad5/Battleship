@@ -11,9 +11,9 @@ namespace Battleship
         static void Main(string[] args)
         {
             Console.WriteLine("---------------------------");
-            Ship testShip = new Ship(4, "Battleship");
+            Ship testShip = new Ship(4, "Battleship", 20);
             ShowLocation(testShip);
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < 19; i++)
             {
                 testShip.Move("RightArrow");
             }
