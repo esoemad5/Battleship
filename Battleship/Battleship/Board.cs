@@ -6,20 +6,8 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class Board // Static class or abstract class?
+    class Board
     {
-        // Haven't written anything in this class yet. Get rid of it? Just use the Game class???
-        // Store 2 arrays per Board: 1 for Ships, 1 for hit/miss. The real battleship boards are 2 20x20 grids.
-        // Or just 1 array for hit/miss and get Ship info from Player. Better to do Player.ships than Player.Board.ships
-        // Ships are on the Board, but ultimately, the Ships belong to the Player (the Player HAS Ships).
-
-
-        /* New Board outline (after writing most of Game and Ship).
-         * 2 char[][] one for Player's Ships and one for Player's hits/misses.
-         * Player.Attack edits Player's hit/miss array and opponents ships array.
-         * Display board will always display both (even in setup part of game).
-         */
-
         private string[][] hitsMisses;
         private string[][] shipPositions;
         private int boardSize;
@@ -29,7 +17,7 @@ namespace Battleship
         private int spacesBetweenBoards;
         private int spacesPerEntry;
 
-        private readonly string[] alphabeticCoordinates = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }; // Going larger than 26x26 is not possible at this time.
+        public readonly string[] alphabeticCoordinates = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }; // Going larger than 26x26 is not possible at this time.
         public Board(int boardSize)
         {
             hitsMisses = new string[boardSize][];
@@ -50,7 +38,7 @@ namespace Battleship
             this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ship Positions";
-            spacesBetweenBoards = 5;
+            spacesBetweenBoards = 6;
             spacesPerEntry = 3;
         }
         private void WriteHeaders()
@@ -109,7 +97,7 @@ namespace Battleship
                 Console.Write(" ");
             }
         }
-        private void WriteBoardsAndAlphabeticCoordinates()
+        private void WriteBoardSectionAndAlphabeticCoordinates()
         {
             for (int i = 0; i < boardSize; i++)
             {
@@ -140,7 +128,17 @@ namespace Battleship
             WriteSpacesBetweenBoards();
             WriteNumericalCoordinates();
             Console.WriteLine();
-            WriteBoardsAndAlphabeticCoordinates();
+            WriteBoardSectionAndAlphabeticCoordinates();
+        }
+
+        /* TODO: Both of these functions will recieve information from Player.Attack
+         * 
+         */
+        public void updateHitsMisses(Object squareThatWasAttacked)
+        {
+        }
+        public void uptadeShipPositions(Ship[] ships, Object squareThatWasAttacked)
+        {
         }
     }
 }

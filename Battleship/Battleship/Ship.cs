@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    // The class does NOT check for overlap with other Ships. This should probably be done in the Game class.
     class Ship
     {
         private int boardSize;
         public bool isSunk;
-        public int[][] location; // An array of length 2 arrays. (0,0) is top left, (20, 20) is bottom right. [ [x, y], [x, y], [x, y],... ]
+
+        // An array of length 2 arrays. (0,0) is top left, (20, 20) is bottom right. [ [x, y], [x, y], [x, y],... ]
+        public int[][] location;
         public bool[] sectionIsDamaged;
         public string name;
         public bool isHorizontal;
         public int[] nose;
         public int[] tail;
+
+
         public Ship(int length, string name, int boardSize)
         {
             isSunk = false;
@@ -93,7 +96,7 @@ namespace Battleship
             }
             return false;
         }
-        public void Move(string direction) // Done, tested, works!
+        public void Move(string direction)
         {
             switch (direction)
             {
@@ -140,7 +143,7 @@ namespace Battleship
             }
             UpdateNoseAndTail();
         }
-        public void Rotate() // Done, tested, works!
+        public void Rotate()
         {
             if (location[0][1] == location[1][1]) // Horizontal to vertical
             {

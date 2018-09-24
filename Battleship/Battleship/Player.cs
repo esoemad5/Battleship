@@ -9,7 +9,7 @@ namespace Battleship
     class Player
     {
         string name;
-        Board hitmiss; // May need to change
+        Board board; // May need to change
         Ship[] ships;
         bool hasActiveShips;
         /* How to store player Ships?
@@ -33,7 +33,11 @@ namespace Battleship
         }
         public void Attack(int[] square, Player opponent)// How to convert input (ex. B4) to the array location?
         {
+            int squareThatWasAttacked = 5;
+            // TODO:  get info on where the player wants to attack and update both player's boards.
 
+            board.updateHitsMisses(squareThatWasAttacked);
+            opponent.board.uptadeShipPositions(opponent.ships, squareThatWasAttacked);
         }
         public void CheckIfNoRemainingShips()
         {
