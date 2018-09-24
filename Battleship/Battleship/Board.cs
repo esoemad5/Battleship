@@ -20,8 +20,8 @@ namespace Battleship
          * Display board will always display both (even in setup part of game).
          */
 
-        private char[][] hitsMisses;
-        private char[][] shipPositions;
+        private string[][] hitsMisses;
+        private string[][] shipPositions;
         private int boardSize;
 
         private string firstBoardLabel;
@@ -29,34 +29,35 @@ namespace Battleship
         private int spacesBetweenBoards;
         private int spacesPerEntry;
 
-        private readonly char[] alphabeticCoordinates = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' }; // Boards can be up to 26x26
+        private readonly string[] alphabeticCoordinates = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }; // Going larger than 26x26 is not possible at this time.
         public Board(int boardSize)
         {
-            hitsMisses = new char[boardSize][];
-            shipPositions = new char[boardSize][];
+            hitsMisses = new string[boardSize][];
+            shipPositions = new string[boardSize][];
+
             for(int i = 0; i < boardSize; i++)
             {
+                hitsMisses[i] = new string[boardSize];
+                shipPositions[i] = new string[boardSize];
+
                 for(int j = 0; j < boardSize; j++)
                 {
-                    hitsMisses[i] = new char[boardSize];
-                    shipPositions[i] = new char[boardSize];
-                    hitsMisses[i][j] = '-';
-                    shipPositions[i][j] = '-';
+                    hitsMisses[i][j] = "-";
+                    shipPositions[i][j] = "-";
                 }
             }
 
             this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ship Positions";
-            spacesBetweenBoards = 7;
-            spacesPerEntry = 4;
+            spacesBetweenBoards = 5;
+            spacesPerEntry = 3;
         }
         private void WriteHeaders()
         {
-            // The character length of each board-half is 3*boardSize
             int halfwayTHroughBoardSection =  spacesPerEntry* boardSize / 2;
 
-            int spacesBeforeFirstBoardLabel = halfwayTHroughBoardSection - (firstBoardLabel.Length / 2);
+            int spacesBeforeFirstBoardLabel = spacesPerEntry + halfwayTHroughBoardSection - (firstBoardLabel.Length / 2);
             for (int i = 0; i < spacesBeforeFirstBoardLabel; i++)
             {
                 Console.Write(" ");
@@ -73,6 +74,7 @@ namespace Battleship
         }
         private void WriteNumericalCoordinates()
         {
+            WriteSpacesBetweenEntries(0);
             for(int i = 0; i < boardSize; i++)
             {
                 if(i < 9)
@@ -113,19 +115,27 @@ namespace Battleship
             {
                 Console.Write(alphabeticCoordinates[i]);
                 WriteSpacesBetweenEntries(alphabeticCoordinates[i].Length);
-                Console.WriteLine();
-                /*
+
                 for (int j = 0; j < hitsMisses.Length; j++)
                 {
-                    Console.Write(hitsMisses[j]);
+                    Console.Write(hitsMisses[i][j]);
+                    /*
+                    Console.Write(j.ToString());
+                    WriteSpacesBetweenEntries(j.ToString().Length);
+                    */
                 }
                 WriteSpacesBetweenBoards();
+                Console.Write(alphabeticCoordinates[i]);
+                WriteSpacesBetweenEntries(alphabeticCoordinates[i].Length);
                 for (int j = 0; j < shipPositions.Length; j++)
                 {
-                    Console.Write(shipPositions[j]);
+                    //Console.Write(shipPositions[i][j]);
+                    Console.Write(j.ToString());
+                    WriteSpacesBetweenEntries(j.ToString().Length);
                 }
-                */
-            }
+
+                Console.WriteLine();
+            } 
         }
         public void Display()
         {
