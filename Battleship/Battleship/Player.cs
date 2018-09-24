@@ -50,5 +50,9 @@ namespace Battleship
             }
             hasActiveShips = false;
         }
+        public void SetUpShips()
+        {
+
+        }
     }
 }

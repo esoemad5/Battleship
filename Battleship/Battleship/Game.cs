@@ -38,10 +38,6 @@ namespace Battleship
         {
 
         }
-        private void SetUpShips() // Should this be in the player class?
-        {
-
-        }
         private bool ShipsOverlap(Ship[] ships) // True if there is overlap. Done, tested, works!
         {
             for(int i = 0; i < ships.Length; i++) // i is one Ship
