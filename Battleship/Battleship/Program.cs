@@ -10,19 +10,14 @@ namespace Battleship
     {
         static void Main(string[] args)
         {
-            // Need to make Game.ShipsOverlap public and static for testing to work
-            Console.WriteLine("---------------------------");
-            Ship testShip0 = new Ship(4, "Battleship", 20);
-            ShowLocation(testShip0.location);
-            Ship testShip1 = new Ship(3, "Submarine", 20);
-            ShowLocation(testShip1.location);
-            Ship[] testArray = { testShip0, testShip1 };
-            testShip1.Move("DownArrow");
-            testShip1.Move("DownArrow");
-            testShip1.Move("DownArrow");
-            //testShip1.Move("DownArrow");
-            ShowLocation(testShip1.location);
-            Console.WriteLine(Game.ShipsOverlap(testArray));
+            for(int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("--------------------");
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("- - - - @ - - - - - - - - - - - - - - -");
+            }
 
         }
         public static void ShowLocation(int[][] input)

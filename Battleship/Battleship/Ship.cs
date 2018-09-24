@@ -174,7 +174,7 @@ namespace Battleship
             }
             UpdateNoseAndTail();
         }
-        public void CheckIfSunk() // Done, UNTESTED.
+        private void CheckIfSunk()
         {
             foreach(bool b in sectionIsDamaged)
             {

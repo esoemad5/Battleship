@@ -61,7 +61,7 @@ namespace Battleship
                      * Vertical: comapre all of j's y (ship[j].location[k][1]) to i's y
                      *  if a common row is found, if(j's x > i's nose && j's x < i's tail): overlap!
                      *  
-                     *  always n*(n+1)/2 (which is < n^2 for all n > 1)
+                     *  always n*(n+1)/2 (which is < n^2, for all n > 1)
                      */
 
                     if (ships[i].isHorizontal && ships[j].isHorizontal)
