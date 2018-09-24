@@ -10,14 +10,27 @@ namespace Battleship
     {
         static void Main(string[] args)
         {
-            for(int i = 0; i < 20; i++)
+            char[][] test = new char[20][];
+            for(int i = 0; i < test.Length; i++)
             {
-                //Console.WriteLine("--------------------");
-                Console.WriteLine("....................");
+                test[i] = new char[20];
+                for(int j = 0; j<test[i].Length; j++)
+                {
+                    test[i][j] = '-';
+                }
             }
-            for (int i = 0; i < 20; i++)
+            Console.Write("  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20");
+            Console.WriteLine();
+            foreach(char[] array in test)
             {
-                Console.WriteLine(". . . . @ @ x @ . o o . . . . . . . . ."); // this spacing is good
+                Console.Write("A ");
+                foreach(char b in array)
+                {
+                    Console.Write(b);
+                    Console.Write("  ");
+                }
+                Console.WriteLine();
+
             }
 
         }

@@ -3,6 +3,18 @@
  * It has been saved here for reference and in case any part of it needed in further tests.
  */
 
+// Spacing for displaying boards
+for(int i = 0; i < 20; i++)
+{
+	//Console.WriteLine("--------------------");
+	Console.WriteLine("....................");
+}
+for (int i = 0; i < 20; i++)
+{
+	Console.WriteLine(". . . . @ @ x @ . o o . . . . . . . . ."); // this spacing is good
+}
+ 
+ 
  // Tests Game.ShipsOverlap
  // Need to make Game.ShipsOverlap public and static for testing to work
 Console.WriteLine("---------------------------");

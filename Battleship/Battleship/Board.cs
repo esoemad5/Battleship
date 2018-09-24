@@ -20,7 +20,32 @@ namespace Battleship
          * Display board will always display both (even in setup part of game).
          */
 
-       private char [][] hitsMisses;
-       private char[][] shipPositions;
+        private char[][] hitsMisses;
+        private char[][] shipPositions;
+        private int boardSize;
+        
+        public Board(int boardSize)
+        {
+            for(int i = 0; i < boardSize; i++)
+            {
+                for(int j = 0; j < boardSize; j++)
+                {
+                    hitsMisses[i][j] = '.';
+                    shipPositions[i][j] = '.';
+                }
+            }
+            this.boardSize = boardSize;
+        }
+        public void displayBoard()
+        {
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
+                {
+                    hitsMisses[i][j] = '.';
+                    shipPositions[i][j] = '.';
+                }
+            }
+        }
     }
 }
