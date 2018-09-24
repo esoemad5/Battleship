@@ -39,5 +39,25 @@ namespace Battleship
         {
 
         }
+        private bool ShipsOverlap(Ship[] ships)
+        {
+            for(int i = 0; i < ships.Length; i++) // i is one Ship
+            {
+                for (int j = i+1; j < ships.Length; j++) // j is another Ship
+                {
+                    for(int k = 0; k < ships[i].location.Length; k++) // k is a coordinate of Ship[i]'s location
+                    {
+                        for (int l = 0; l < ships[j].location.Length; l++) // l is a coordinate of Ship[j]'s location
+                        {
+                            if(ships[i].location[k] == ships[j].location[l])
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false; // no overlap
+        }
     }
 }
