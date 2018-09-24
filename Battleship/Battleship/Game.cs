@@ -39,12 +39,29 @@ namespace Battleship
         {
 
         }
-        private bool ShipsOverlap(Ship[] ships)
+        private bool ShipsOverlap(Ship[] ships) // Do 4 nested for-loops constitute a red flag?
+            // can do a nose-tail thing. topology ftw. both horizontal/vertical or mixed matters? or just do all at same time?
         {
             for(int i = 0; i < ships.Length; i++) // i is one Ship
             {
                 for (int j = i+1; j < ships.Length; j++) // j is another Ship
                 {
+                    /* smrt solution. Ship length does not affect computational efficiency.
+                     * If both horizontal, check if in same row(y-coordinate; .location[1]),
+                     * then check if nose/tail of j is between i's nose/tail(.location[0])
+                     * 
+                     * If both vertical, check if in same column (.location[0]),
+                     * then check if nose/tail of j is between i's nose/tail (.location[1])
+                     * 
+                     * If different orientations, check depends on j horz or vert (always compare j to i).
+                     * Horizontal: compare all of j's x (ships[j].location[k][0]) to i's x (Ship[i].location[0][0])
+                     *  if a common column is found, if(j's y > i's nose && j's y < i's tail): overlap!
+                     * Vertical: comapre all of j's y (ship[j].location[k][1]) to i's y
+                     *  if a common row is found, if(j's x > i's nose && j's x < i's tail): overlap!
+                     */
+
+
+                    /* Slow solution
                     for(int k = 0; k < ships[i].location.Length; k++) // k is a coordinate of Ship[i]'s location
                     {
                         for (int l = 0; l < ships[j].location.Length; l++) // l is a coordinate of Ship[j]'s location
@@ -55,6 +72,7 @@ namespace Battleship
                             }
                         }
                     }
+                    */
                 }
             }
             return false; // no overlap
