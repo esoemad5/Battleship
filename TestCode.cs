@@ -3,10 +3,41 @@
  * It has been saved here for reference and in case any part of it needed in further tests.
  */
 
- // Useful function when the Board class is unfinished.
- static void ShowLocation(Ship ship)
+ // Tests Game.ShipsOverlap
+ // Need to make Game.ShipsOverlap public and static for testing to work
+Console.WriteLine("---------------------------");
+Ship testShip0 = new Ship(4, "Battleship", 20);
+ShowLocation(testShip0.location);
+Ship testShip1 = new Ship(3, "Submarine", 20);
+ShowLocation(testShip1.location);
+Ship[] testArray = { testShip0, testShip1 };
+testShip1.Move("DownArrow");
+testShip1.Move("DownArrow");
+testShip1.Move("DownArrow");
+//testShip1.Move("DownArrow");
+ShowLocation(testShip1.location);
+Console.WriteLine(Game.ShipsOverlap(testArray));
+ 
+ 
+ // Tests Ship.Move and Ship.Rotate
+Console.WriteLine("---------------------------");
+Ship testShip = new Ship(4, "Battleship", 20);
+ShowLocation(testShip.location);
+for(int i = 0; i < 18; i++)
 {
-	foreach (int[] square in ship.location)
+	testShip.Move("RightArrow");
+}
+
+ShowLocation(testShip.location);
+
+testShip.Rotate();
+ShowLocation(testShip.location);
+ 
+ 
+ // Useful function when the Board class is unfinished.
+public static void ShowLocation(int[][] input)
+{
+	foreach (int[] square in input)
 	{
 		Console.WriteLine("({0}, {1})", square[0], square[1]);
 		

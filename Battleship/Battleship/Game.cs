@@ -42,7 +42,7 @@ namespace Battleship
         {
 
         }
-        private bool ShipsOverlap(Ship[] ships) // True if there is overlap. Done, UNTESTED
+        private bool ShipsOverlap(Ship[] ships) // True if there is overlap. Done, tested, works!
         {
             for(int i = 0; i < ships.Length; i++) // i is one Ship
             {
