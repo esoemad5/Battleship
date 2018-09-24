@@ -140,7 +140,7 @@ namespace Battleship
             }
             UpdateNoseAndTail();
         }
-        public void Rotate() // Done, UNTESTED. Ship.location[0] has to be the closest point to (0, 0)!!!
+        public void Rotate() // Done, tested, works!
         {
             if (location[0][1] == location[1][1]) // Horizontal to vertical
             {
@@ -167,6 +167,10 @@ namespace Battleship
                     }
                 }
                 
+            }
+            if (OutOfBounds())
+            {
+                Rotate();
             }
             UpdateNoseAndTail();
         }
