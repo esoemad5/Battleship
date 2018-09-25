@@ -144,13 +144,30 @@ namespace Battleship
             // Check for dammage each time
             foreach(Ship ship in ships)
             {
-                if (ship.isHorizontal)
+                for(int i = 0; i < ship.location.Length; i++)
                 {
-
-                }
-                else
-                {
-
+                    if (ship.isHorizontal)
+                    {
+                        if (ship.sectionIsDamaged[i])
+                        {
+                            shipPositions[ship.nose[0] + i][ship.nose[1]] = "X";
+                        }
+                        else
+                        {
+                            shipPositions[ship.nose[0] + i][ship.nose[1]] = "@";
+                        } 
+                    }
+                    else
+                    {
+                        if (ship.sectionIsDamaged[i])
+                        {
+                            shipPositions[ship.nose[0]][ship.nose[1] + i] = "X";
+                        }
+                        else
+                        {
+                            shipPositions[ship.nose[0]][ship.nose[1] + i] = "@";
+                        }
+                    }
                 }
             }
         }

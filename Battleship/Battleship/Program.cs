@@ -11,7 +11,12 @@ namespace Battleship
         static void Main(string[] args)
         {
             Player testPlayer = new Player("Player", 20);
-
+            testPlayer.board.updateShipPositions(testPlayer.ships, null);
+            testPlayer.board.Display();
+            foreach(Ship ship in testPlayer.ships)
+            {
+                ShowLocation(ship.location);
+            }
     
         }
         public static void ShowLocation(int[][] input)

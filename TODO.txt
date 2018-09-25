@@ -3,7 +3,7 @@ Things left to do:
 
 test      Player.SetUpShips
 write     Board.updateHitsMisses
-write     Board.updateShipPositions
+test/fix  Board.updateShipPositions
 write     Player.Attack
 write     Game.PlayGame
 
