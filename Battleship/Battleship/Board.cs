@@ -137,15 +137,14 @@ namespace Battleship
         public void updateHitsMisses(Object squareThatWasAttacked)
         {
         }
-        public void updateShipPositions(Ship[] ships, Object squareThatWasAttacked)
+        public void updateShipPositions(Ship[] ships, Object squareThatWasAttacked) // Does not deal with attacks!
         {
-            // Different if Ship is horizontal or vertical.
-            // Start at nose and go from there
-            // Check for dammage each time
             foreach(Ship ship in ships)
             {
+                Console.WriteLine("{0}", ship.name);
                 for(int i = 0; i < ship.location.Length; i++)
                 {
+                    Display();
                     if (ship.isHorizontal)
                     {
                         if (ship.sectionIsDamaged[i])

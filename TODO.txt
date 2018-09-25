@@ -2,8 +2,8 @@ Last updated: Sept. 25, 2018
 Things left to do:
 
 test      Player.SetUpShips
-write     Board.updateHitsMisses
-test/fix  Board.updateShipPositions
+write     Board.UpdateHitsMisses
+test/fix  Board.UpdateShipPositions
 write     Player.Attack
 write     Game.PlayGame
 
