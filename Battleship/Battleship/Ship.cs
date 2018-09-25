@@ -138,7 +138,6 @@ namespace Battleship
                     }
                     break;
                 default:
-                    Console.WriteLine("Error in Ship.Move: input was not a direction.");
                     break;
             }
             UpdateNoseAndTail();

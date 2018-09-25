@@ -8,10 +8,10 @@ namespace Battleship
 {
     class Player
     {
-        string name;
-        Board board; // May need to change
-        Ship[] ships;
-        bool hasActiveShips;
+        public string name;
+        public Board board; // May need to change
+        public Ship[] ships;
+        public bool hasActiveShips;
         /* How to store player Ships?
          * 1 array of booleans for active/sunk
          * 2 arrays of Ship objects (another way to access location and dammage)
@@ -29,7 +29,7 @@ namespace Battleship
             ships[3] = new Ship(3, "Submarine", boardSize);
             ships[4] = new Ship(2, "Patrol Boat", boardSize);
             MoveShipsToDefaultLocations();
-            // TODO: hitmiss = new ???(); use a Board???
+            board = new Board(boardSize);
             hasActiveShips = true;
         }
         private void MoveShipsToDefaultLocations()
@@ -63,11 +63,118 @@ namespace Battleship
         }
         public void SetUpShips()
         {
-            // Put all ships on the board, not overlaping
+            bool playerIsReady = false;
+            int selectedShipsIndex = 0;
+            while (!playerIsReady)
+            {
+                // Update the board with the Player.ships
+                // Allow the player to move/rotate ships and cycle through them
+                ConsoleKeyInfo input = Console.ReadKey();
+                ships[selectedShipsIndex].Move(input.KeyChar.ToString());
+                switch (input.KeyChar)
+                {
+                    case 'a':
+                        if(selectedShipsIndex == 0)
+                        {
+                            selectedShipsIndex = 4;
+                        }
+                        else
+                        {
+                            selectedShipsIndex++;
+                            selectedShipsIndex %= 5;
+                        }
+                        break;
+                    case 'd':
+                        selectedShipsIndex++;
+                        selectedShipsIndex %= 5;
+                        break;
+                    case 'r':
+                        ships[selectedShipsIndex].Rotate();
+                        break;
+                    case 'p':
+                        if (ShipsOverlap())
+                        {
+                            // Do nothing
+                        }
+                        else
+                        {
+                            playerIsReady = !playerIsReady;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                // Player can press 'p' to finish and 'play' after confirming y/n
+                // If there are overlaps, pressing 'p' will display a message saying so.
 
-            // Allow the player to move/rotate ships and cycle through them
-            // Player can press 'p' to finish and 'play' after confirming y/n
-            // If there are overlaps, pressing 'p' will display a message saying so.
+            }
+        }
+        private bool ShipsOverlap() // True if there is overlap. Done, tested, works!
+        {
+            for (int i = 0; i < ships.Length; i++) // i is one Ship
+            {
+                for (int j = i + 1; j < ships.Length; j++) // j is another Ship
+                {
+
+                    if (ships[i].isHorizontal && ships[j].isHorizontal)
+                    {
+                        if (ships[j].nose[1] == ships[i].nose[1])
+                        {
+                            if (ships[j].nose[0] <= ships[i].tail[0] && ships[j].nose[0] >= ships[i].nose[0])
+                            {
+                                return true;
+                            }
+                            if (ships[j].tail[0] <= ships[i].tail[0] && ships[j].tail[0] >= ships[i].nose[0])
+                            {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    else if (!ships[i].isHorizontal && !ships[j].isHorizontal)
+                    {
+                        if (ships[j].nose[0] == ships[i].nose[0])
+                        {
+                            if (ships[j].nose[1] <= ships[i].tail[1] && ships[j].nose[1] >= ships[i].nose[1])
+                            {
+                                return true;
+                            }
+                            if (ships[j].tail[1] <= ships[i].tail[1] && ships[j].tail[1] >= ships[i].nose[1])
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else if (ships[j].isHorizontal && !ships[i].isHorizontal)
+                    {
+                        // if j shares a row with i
+                        if (ships[j].nose[1] >= ships[i].nose[1] && ships[j].nose[1] <= ships[i].tail[1])
+                        {
+                            if (ships[j].nose[0] <= ships[i].nose[0] && ships[j].tail[0] >= ships[i].nose[0])
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else if (!ships[j].isHorizontal && ships[i].isHorizontal)
+                    {
+                        // if j shares a column with i
+                        if (ships[j].nose[0] >= ships[i].nose[0] && ships[j].nose[0] <= ships[i].tail[0])
+                        {
+                            if (ships[j].nose[1] <= ships[i].nose[1] && ships[j].tail[1] >= ships[i].nose[1])
+                            {
+                                return true;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("A 5th combination of 2 booleans has been found.");
+                    }
+                }
+            }
+            return false;
         }
     }
 }
