@@ -98,6 +98,7 @@ namespace Battleship
         }
         public void Move(string direction)
         {
+            Console.WriteLine("{0}, {1}", name, direction);
             switch (direction)
             {
                 case "UpArrow":

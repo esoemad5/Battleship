@@ -14,3 +14,6 @@ Player.CheckIfNoRemainingShips
 Player.MoveShipsToDefaultLocations
 
 Player.ShipsOverlap has not been tested with Player.SetUpShips
+
+HUGE BUG????
+Ships should initialized as vertical, but are displayed as horizontal. Down is right, Right is down, Left is probably up, Up is probably left, 

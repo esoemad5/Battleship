@@ -141,10 +141,8 @@ namespace Battleship
         {
             foreach(Ship ship in ships)
             {
-                Console.WriteLine("{0}", ship.name);
                 for(int i = 0; i < ship.location.Length; i++)
                 {
-                    Display();
                     if (ship.isHorizontal)
                     {
                         if (ship.sectionIsDamaged[i])
