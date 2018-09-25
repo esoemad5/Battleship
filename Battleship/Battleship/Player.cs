@@ -39,6 +39,7 @@ namespace Battleship
                 for (int j = 0; j < i; j++)
                 {
                     ships[i].Move("RightArrow");
+                    ships[i].Move("RightArrow");
                 }
             }
         }
