@@ -114,7 +114,7 @@ namespace Battleship
                 WriteSpacesBetweenEntries(alphabeticCoordinates[i].Length);
                 for (int j = 0; j < shipPositions.Length; j++)
                 {
-                    Console.Write(shipPositions[i][j]);
+                    Console.Write(shipPositions[j][i]);
                     WriteSpacesBetweenEntries(shipPositions[i][j].Length);
                 }
 

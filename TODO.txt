@@ -16,4 +16,5 @@ Player.MoveShipsToDefaultLocations
 Player.ShipsOverlap has not been tested with Player.SetUpShips
 
 HUGE BUG????
-Ships should initialized as vertical, but are displayed as horizontal. Down is right, Right is down, Left is probably up, Up is probably left, 
+fixed, kind of. Board stores stuff as (y, x). Is there a way to fix this??? Is probably iportant to stay true to conventions (all (y, x) or all (x, y)) to avoid confusion.
+	Ships should initialized as vertical, but are displayed as horizontal. Down is right, Right is down, Left is probably up, Up is probably left.
