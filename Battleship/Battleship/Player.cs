@@ -70,7 +70,7 @@ namespace Battleship
                 // Update the board with the Player.ships
                 // Allow the player to move/rotate ships and cycle through them
                 ConsoleKeyInfo input = Console.ReadKey();
-                ships[selectedShipsIndex].Move(input.KeyChar.ToString());
+
                 switch (input.KeyChar)
                 {
                     case 'a':
@@ -94,14 +94,20 @@ namespace Battleship
                     case 'p':
                         if (ShipsOverlap())
                         {
-                            // Do nothing
+                            Console.WriteLine("Please make sure no ships overlap!");
                         }
                         else
                         {
-                            playerIsReady = !playerIsReady;
+                            Console.WriteLine("Are you sure this is the ship configuration you want? Theres no chainging it after this. Press y to coninue or any other key to go back.");
+                            if(Console.ReadKey().KeyChar == 'y')
+                            {
+                                playerIsReady = !playerIsReady;
+                            }
+                            
                         }
                         break;
                     default:
+                        ships[selectedShipsIndex].Move(input.KeyChar.ToString()); // If the input is not arrow keys, Ship.Move does nothing.
                         break;
                 }
                 // Player can press 'p' to finish and 'play' after confirming y/n
