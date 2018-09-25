@@ -1,0 +1,16 @@
+Last updated: Sept. 25, 2018
+Things left to do:
+
+test      Player.SetUpShips
+write     Board.updateHitsMisses
+write     Board.updateShipPositions
+write     Player.Attack
+write     Game.PlayGame
+
+untested (but small) functions
+Ship.CheckIfSunk
+Ship.UpdateNoseAndTail
+Player.CheckIfNoRemainingShips
+Player.MoveShipsToDefaultLocations
+
+Player.ShipsOverlap has not been tested with Player.SetUpShips

@@ -110,8 +110,6 @@ namespace Battleship
                         ships[selectedShipsIndex].Move(input.KeyChar.ToString()); // If the input is not arrow keys, Ship.Move does nothing.
                         break;
                 }
-                // Player can press 'p' to finish and 'play' after confirming y/n
-                // If there are overlaps, pressing 'p' will display a message saying so.
 
             }
         }

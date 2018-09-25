@@ -132,7 +132,7 @@ namespace Battleship
         }
 
         /* TODO: Both of these functions will recieve information from Player.Attack
-         * 
+         * squareThatWasAttacked should NOT be of type Object
          */
         public void updateHitsMisses(Object squareThatWasAttacked)
         {
