@@ -106,8 +106,8 @@ namespace Battleship
 
                 for (int j = 0; j < hitsMisses.Length; j++)
                 {
-                    Console.Write(hitsMisses[i][j]);
-                    WriteSpacesBetweenEntries(hitsMisses[i][j].Length);
+                    Console.Write(hitsMisses[j][i]);
+                    WriteSpacesBetweenEntries(hitsMisses[j][i].Length);
                 }
                 WriteSpacesBetweenBoards();
                 Console.Write(alphabeticCoordinates[i]);
@@ -115,7 +115,7 @@ namespace Battleship
                 for (int j = 0; j < shipPositions.Length; j++)
                 {
                     Console.Write(shipPositions[j][i]);
-                    WriteSpacesBetweenEntries(shipPositions[i][j].Length);
+                    WriteSpacesBetweenEntries(shipPositions[j][i].Length);
                 }
 
                 Console.WriteLine();
