@@ -48,7 +48,7 @@ namespace Battleship
             // TODO:  get info on where the player wants to attack and update both player's boards.
 
             board.updateHitsMisses(squareThatWasAttacked);
-            opponent.board.uptadeShipPositions(opponent.ships, squareThatWasAttacked);
+            opponent.board.updateShipPositions(opponent.ships, squareThatWasAttacked);
         }
         public void CheckIfNoRemainingShips()
         {
@@ -67,8 +67,8 @@ namespace Battleship
             int selectedShipsIndex = 0;
             while (!playerIsReady)
             {
-                // Update the board with the Player.ships
-                // Allow the player to move/rotate ships and cycle through them
+                board.updateShipPositions(ships, null);
+                board.Display();
                 ConsoleKeyInfo input = Console.ReadKey();
 
                 switch (input.KeyChar)

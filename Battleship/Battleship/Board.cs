@@ -137,8 +137,22 @@ namespace Battleship
         public void updateHitsMisses(Object squareThatWasAttacked)
         {
         }
-        public void uptadeShipPositions(Ship[] ships, Object squareThatWasAttacked)
+        public void updateShipPositions(Ship[] ships, Object squareThatWasAttacked)
         {
+            // Different if Ship is horizontal or vertical.
+            // Start at nose and go from there
+            // Check for dammage each time
+            foreach(Ship ship in ships)
+            {
+                if (ship.isHorizontal)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }
