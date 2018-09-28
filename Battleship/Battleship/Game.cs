@@ -36,7 +36,12 @@ namespace Battleship
         }
         private void PlayGame()
         {
+            player1.SetUpShips();
+            player2.SetUpShips();
+            while (player1.HasActiveShips && player2.HasActiveShips)
+            {
 
+            }
         }
 
     }

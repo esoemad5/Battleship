@@ -8,10 +8,15 @@ namespace Battleship
 {
     class Player
     {
-        public string name;
-        public Board board; // May need to change
-        public Ship[] ships;
-        public bool hasActiveShips;
+        private string name;
+        public string Name { get => name; }
+        private Board board; // May need to change
+        public Board Board { get => board; }
+        private Ship[] ships;
+        public Ship[] Ships { get => ships; }
+
+        private bool hasActiveShips;
+        public bool HasActiveShips { get => hasActiveShips; }
         /* How to store player Ships?
          * 1 array of booleans for active/sunk
          * 2 arrays of Ship objects (another way to access location and dammage)
@@ -55,7 +60,7 @@ namespace Battleship
         {
             foreach(Ship ship in ships)
             {
-                if (!ship.isSunk)
+                if (!ship.IsSunk)
                 {
                     return;
                 }
@@ -121,52 +126,52 @@ namespace Battleship
                 for (int j = i + 1; j < ships.Length; j++) // j is another Ship
                 {
 
-                    if (ships[i].isHorizontal && ships[j].isHorizontal)
+                    if (ships[i].IsHorizontal && ships[j].IsHorizontal)
                     {
-                        if (ships[j].nose[1] == ships[i].nose[1])
+                        if (ships[j].Nose[1] == ships[i].Nose[1])
                         {
-                            if (ships[j].nose[0] <= ships[i].tail[0] && ships[j].nose[0] >= ships[i].nose[0])
+                            if (ships[j].Nose[0] <= ships[i].Tail[0] && ships[j].Nose[0] >= ships[i].Nose[0])
                             {
                                 return true;
                             }
-                            if (ships[j].tail[0] <= ships[i].tail[0] && ships[j].tail[0] >= ships[i].nose[0])
+                            if (ships[j].Tail[0] <= ships[i].Tail[0] && ships[j].Tail[0] >= ships[i].Nose[0])
                             {
                                 return true;
                             }
                         }
                         return false;
                     }
-                    else if (!ships[i].isHorizontal && !ships[j].isHorizontal)
+                    else if (!ships[i].IsHorizontal && !ships[j].IsHorizontal)
                     {
-                        if (ships[j].nose[0] == ships[i].nose[0])
+                        if (ships[j].Nose[0] == ships[i].Nose[0])
                         {
-                            if (ships[j].nose[1] <= ships[i].tail[1] && ships[j].nose[1] >= ships[i].nose[1])
+                            if (ships[j].Nose[1] <= ships[i].Tail[1] && ships[j].Nose[1] >= ships[i].Nose[1])
                             {
                                 return true;
                             }
-                            if (ships[j].tail[1] <= ships[i].tail[1] && ships[j].tail[1] >= ships[i].nose[1])
+                            if (ships[j].Tail[1] <= ships[i].Tail[1] && ships[j].Tail[1] >= ships[i].Nose[1])
                             {
                                 return true;
                             }
                         }
                     }
-                    else if (ships[j].isHorizontal && !ships[i].isHorizontal)
+                    else if (ships[j].IsHorizontal && !ships[i].IsHorizontal)
                     {
                         // if j shares a row with i
-                        if (ships[j].nose[1] >= ships[i].nose[1] && ships[j].nose[1] <= ships[i].tail[1])
+                        if (ships[j].Nose[1] >= ships[i].Nose[1] && ships[j].Nose[1] <= ships[i].Tail[1])
                         {
-                            if (ships[j].nose[0] <= ships[i].nose[0] && ships[j].tail[0] >= ships[i].nose[0])
+                            if (ships[j].Nose[0] <= ships[i].Nose[0] && ships[j].Tail[0] >= ships[i].Nose[0])
                             {
                                 return true;
                             }
                         }
                     }
-                    else if (!ships[j].isHorizontal && ships[i].isHorizontal)
+                    else if (!ships[j].IsHorizontal && ships[i].IsHorizontal)
                     {
                         // if j shares a column with i
-                        if (ships[j].nose[0] >= ships[i].nose[0] && ships[j].nose[0] <= ships[i].tail[0])
+                        if (ships[j].Nose[0] >= ships[i].Nose[0] && ships[j].Nose[0] <= ships[i].Tail[0])
                         {
-                            if (ships[j].nose[1] <= ships[i].nose[1] && ships[j].tail[1] >= ships[i].nose[1])
+                            if (ships[j].Nose[1] <= ships[i].Nose[1] && ships[j].Tail[1] >= ships[i].Nose[1])
                             {
                                 return true;
                             }

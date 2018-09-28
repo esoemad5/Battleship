@@ -141,28 +141,28 @@ namespace Battleship
         {
             foreach(Ship ship in ships)
             {
-                for(int i = 0; i < ship.location.Length; i++)
+                for(int i = 0; i < ship.Location.Length; i++)
                 {
-                    if (ship.isHorizontal)
+                    if (ship.IsHorizontal)
                     {
-                        if (ship.sectionIsDamaged[i])
+                        if (ship.SectionIsDamaged[i])
                         {
-                            shipPositions[ship.nose[0] + i][ship.nose[1]] = "X";
+                            shipPositions[ship.Nose[0] + i][ship.Nose[1]] = "X";
                         }
                         else
                         {
-                            shipPositions[ship.nose[0] + i][ship.nose[1]] = "@";
+                            shipPositions[ship.Nose[0] + i][ship.Nose[1]] = "@";
                         } 
                     }
                     else
                     {
-                        if (ship.sectionIsDamaged[i])
+                        if (ship.SectionIsDamaged[i])
                         {
-                            shipPositions[ship.nose[0]][ship.nose[1] + i] = "X";
+                            shipPositions[ship.Nose[0]][ship.Nose[1] + i] = "X";
                         }
                         else
                         {
-                            shipPositions[ship.nose[0]][ship.nose[1] + i] = "@";
+                            shipPositions[ship.Nose[0]][ship.Nose[1] + i] = "@";
                         }
                     }
                 }

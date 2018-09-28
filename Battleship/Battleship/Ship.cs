@@ -9,15 +9,22 @@ namespace Battleship
     class Ship
     {
         private int boardSize;
-        public bool isSunk;
+        private bool isSunk;
+        public bool IsSunk { get => isSunk; }
 
         // An array of length 2 arrays. (0,0) is top left, (20, 20) is bottom right. [ [x, y], [x, y], [x, y],... ]
-        public int[][] location;
-        public bool[] sectionIsDamaged;
-        public string name;
-        public bool isHorizontal;
-        public int[] nose;
-        public int[] tail;
+        private int[][] location;
+        public int[][] Location { get => location; }
+        private bool[] sectionIsDamaged;
+        public bool[] SectionIsDamaged { get => sectionIsDamaged; }
+        private string name;
+        public string Name { get => name; }
+        private bool isHorizontal;
+        public bool IsHorizontal { get => isHorizontal; }
+        private int[] nose;
+        public int[] Nose { get => nose; }
+        private int[] tail;
+        public int[] Tail { get => tail; }
 
 
         public Ship(int length, string name, int boardSize)
