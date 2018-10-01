@@ -12,19 +12,6 @@ namespace Battleship
         Player player2;
         int boardSize;
 
-        /* Create players.
-         */
-        /* Players set up Ships.
-         * Make 5 Ships in default positions. Put them into Player's Ship[].
-         * Player can cycle through array with 'a' and 'd', rotate with 'r' move with arrow keys.
-         */
-        /* Players play the Game.
-         * while(player1.hasActiveShips && player2.hasActiveShips)
-         * {showBoard(player1); player1.attack(input, player2.ships);
-         * showBoard(player2); player2.attack(input, player1.ships);}
-         * Player.attack looks at oponent's Ship array, displays results then edits own Player's array?
-         * Store some/all arrays in the game class? The Boards are part of the game and the Players interact with them.
-         */
         public Game()
         {
             boardSize = 20;
@@ -40,22 +27,22 @@ namespace Battleship
             player2.SetUpShips();
             while (player1.HasActiveShips && player2.HasActiveShips)
             {
-                player1.Attack(GetAttackTarget(), player2);
+                player1.Board.Display();
+                player1.Attack(player1.DeclareAttackTarget(), player2);
                 if (!player2.HasActiveShips)
                 {
-                    //player1 wins
+                    Console.WriteLine("{} wins!", player1.Name);
+                    return;
                 }
-                player2.Attack(GetAttackTarget(), player2);
+
+                player2.Board.Display();
+                player2.Attack(player2.DeclareAttackTarget(), player2);
                 if (!player1.HasActiveShips)
                 {
-                    //player2 wins
+                    Console.WriteLine("{} wins!", player2.Name);
+                    return;
                 }
             }
         }
-        private int[] GetAttackTarget()
-        {
-            return new int[2];
-        }
-
     }
 }

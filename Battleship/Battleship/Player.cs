@@ -48,6 +48,15 @@ namespace Battleship
                 }
             }
         }
+        public int[] DeclareAttackTarget()
+        {
+            Console.WriteLine("{0}, which location would you like to attack?", name);
+            string input;
+            //while()
+            input = Console.ReadLine();
+            //validate intput
+            //translate input
+        }
         public void Attack(int[] square, Player opponent)
         {
             foreach(Ship ship in opponent.Ships)

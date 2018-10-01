@@ -11,18 +11,8 @@ namespace Battleship
         static void Main(string[] args)
         {
             Player testPlayer = new Player("Player", 20);
-            testPlayer.Board.UpdateShipPositions(testPlayer.Ships);
-            testPlayer.Board.Display();
-            Console.ReadKey();
-            int[] arr = new int[] { 2, 3 };
-            testPlayer.Attack(arr, testPlayer);
-            testPlayer.Board.UpdateShipPositions(testPlayer.Ships);
-            testPlayer.Board.Display();
-            //foreach(Ship ship in testPlayer.Ships)
-            {
-               //ShowLocation(ship.Location);
-            }
-            //  testPlayer.SetUpShips();
+            testPlayer.SetUpShips();
+            
 
             /*
             for(int i = 0; i < testPlayer.Board.alphabeticCoordinates.Length; i++)

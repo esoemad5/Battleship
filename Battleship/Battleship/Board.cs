@@ -141,7 +141,7 @@ namespace Battleship
         /* TODO: Both of these functions will recieve information from Player.Attack
          * squareThatWasAttacked should NOT be of type Object
          */
-        public void UpdateHitsMisses()
+        public void UpdateHitsMisses() // this method is not needed. Remove this method and all calls to it in the rest of the project if it is still un-needed by the time the project is completed.
         {
         }
         public void UpdateShipPositions(Ship[] ships) // Does not deal with attacks!
