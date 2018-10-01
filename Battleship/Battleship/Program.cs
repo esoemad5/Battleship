@@ -11,13 +11,22 @@ namespace Battleship
         static void Main(string[] args)
         {
             Player testPlayer = new Player("Player", 20);
-            testPlayer.Board.updateShipPositions(testPlayer.Ships);
+            //testPlayer.Board.updateShipPositions(testPlayer.Ships);
            // testPlayer.Board.Display();
             foreach(Ship ship in testPlayer.Ships)
             {
                //ShowLocation(ship.Location);
             }
-            testPlayer.SetUpShips();
+          //  testPlayer.SetUpShips();
+          for(int i = 0; i < testPlayer.Board.alphabeticCoordinates.Length; i++)
+            {
+                Console.WriteLine( testPlayer.Board.alphabeticCoordinates[i].ToUpper().ToCharArray()[0] - 64);
+            }
+            if ('A' > 30)
+            {
+                Console.WriteLine("Hello World!");
+            }
+            
 
     
         }

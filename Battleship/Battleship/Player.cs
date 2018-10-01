@@ -50,10 +50,21 @@ namespace Battleship
         }
         public void Attack(int[] square, Player opponent)// How to convert input (ex. B4) to the array location?
         {
-            int squareThatWasAttacked = 5; // just to make compiler happy
-            // TODO:  get info on where the player wants to attack and update both player's boards.
-
-            board.updateHitsMisses(squareThatWasAttacked);
+            foreach(Ship ship in opponent.Ships)
+            {
+                foreach(int[] location in ship.Location)
+                {
+                    if(location == square)
+                    {
+                        // hit
+                    }
+                    else
+                    {
+                        // miss
+                    }
+                }
+            }
+            board.updateHitsMisses();
             opponent.board.updateShipPositions(opponent.ships);
         }
         public void CheckIfNoRemainingShips()
@@ -124,7 +135,7 @@ namespace Battleship
 
             }
         }
-        private bool ShipsOverlap() // True if there is overlap. Done, tested, works!
+        private bool ShipsOverlap()
         {
             for (int i = 0; i < ships.Length; i++) // i is one Ship
             {
@@ -191,5 +202,8 @@ namespace Battleship
             }
             return false;
         }
+
+
+
     }
 }

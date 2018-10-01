@@ -138,7 +138,7 @@ namespace Battleship
         /* TODO: Both of these functions will recieve information from Player.Attack
          * squareThatWasAttacked should NOT be of type Object
          */
-        public void updateHitsMisses(Object squareThatWasAttacked)
+        public void updateHitsMisses()
         {
         }
         public void updateShipPositions(Ship[] ships) // Does not deal with attacks!
