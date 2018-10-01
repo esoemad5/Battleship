@@ -48,19 +48,22 @@ namespace Battleship
                 }
             }
         }
-        public void Attack(int[] square, Player opponent)// How to convert input (ex. B4) to the array location?
+        public void Attack(int[] square, Player opponent)
         {
             foreach(Ship ship in opponent.Ships)
             {
-                foreach(int[] location in ship.Location)
+
+                for(int i = 0; i < ship.Location.Length; i++)
                 {
-                    if(location == square)
+                    if (ship.Location[i][0] == square[0] && ship.Location[i][1] == square[1])
                     {
-                        // hit
+                        ship.SectionIsDamaged[i] = true;
+                        board.HitsMisses[square[0]][square[1]] = "X";
+                        return;
                     }
                     else
                     {
-                        // miss
+                        board.HitsMisses[square[0]][square[1]] = "O";
                     }
                 }
             }

@@ -8,7 +8,10 @@ namespace Battleship
 {
     class Board
     {
+        private int test;
+        public int Test { set => test = value; }
         private string[][] hitsMisses;
+        public string[][] HitsMisses { get => hitsMisses; set{ hitsMisses = value;} }
         private string[][] shipPositions;
         private int boardSize;
 
