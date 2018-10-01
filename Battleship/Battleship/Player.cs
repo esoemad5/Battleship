@@ -77,6 +77,7 @@ namespace Battleship
                     else
                     {
                         board.HitsMisses[square[0]][square[1]] = "O";
+                        opponent.Board.ShipPositions[square[0]][square[1]] = "O";
 
                     }
                 }
@@ -90,7 +91,6 @@ namespace Battleship
                 ship.CheckIfSunk();
                 if (!ship.IsSunk)
                 {
-                    Console.ReadLine();
                     return;
                 }
             }

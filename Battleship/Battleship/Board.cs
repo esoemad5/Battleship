@@ -13,6 +13,7 @@ namespace Battleship
         private string[][] hitsMisses;
         public string[][] HitsMisses { get => hitsMisses; }
         private string[][] shipPositions;
+        public string[][] ShipPositions { get => shipPositions; }
         private int size;
         public int Size { get => size; }
 
