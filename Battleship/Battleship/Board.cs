@@ -131,6 +131,7 @@ namespace Battleship
         }
         public void Display()
         {
+            Console.Clear();
             WriteHeaders();
             WriteNumericalCoordinates();
             WriteSpacesBetweenBoards();

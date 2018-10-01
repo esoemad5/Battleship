@@ -71,7 +71,6 @@ namespace Battleship
                         ship.SectionIsDamaged[i] = true;
                         board.HitsMisses[square[0]][square[1]] = "X";
 
-                        board.UpdateHitsMisses();
                         opponent.board.UpdateShipPositions(opponent.ships);
                         return;
                     }
@@ -82,7 +81,6 @@ namespace Battleship
                     }
                 }
             }
-            board.UpdateHitsMisses();
             opponent.board.UpdateShipPositions(opponent.ships);
         }
         public void CheckIfNoRemainingShips()
