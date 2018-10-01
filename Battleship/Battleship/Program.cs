@@ -12,10 +12,14 @@ namespace Battleship
         {
             Player testPlayer = new Player("Player", 20);
             //testPlayer.SetUpShips();
-            while (true)
+            string a = " ";
+            while (!InputProcessing.Validate(a, 20))
             {
-                Console.WriteLine("Converted to: {0}", Convert.ToInt32(Console.ReadLine().Substring(1)));
+                Console.WriteLine("Invalid input is: {0}", a);
+                a = Console.ReadLine();
             }
+            Console.WriteLine("Valid input is: {0}", a);
+            Console.WriteLine("Translated input is: {0}, {1}", InputProcessing.Translate(a)[0], InputProcessing.Translate(a)[1]);
             
 
             /*
