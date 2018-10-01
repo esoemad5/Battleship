@@ -54,7 +54,7 @@ namespace Battleship
             // TODO:  get info on where the player wants to attack and update both player's boards.
 
             board.updateHitsMisses(squareThatWasAttacked);
-            opponent.board.updateShipPositions(opponent.ships, squareThatWasAttacked);
+            opponent.board.updateShipPositions(opponent.ships);
         }
         public void CheckIfNoRemainingShips()
         {
@@ -73,8 +73,15 @@ namespace Battleship
             int selectedShipsIndex = 0;
             while (!playerIsReady)
             {
-                board.updateShipPositions(ships, null);
-                board.Display();
+
+                //Console.Clear();
+                //board.updateShipPositions(ships);
+                //board.Display();
+                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111");
+                foreach (Ship ship in Ships)
+                {
+                    Program.ShowLocation(ship.Location);
+                }
                 ConsoleKeyInfo input = Console.ReadKey();
 
                 switch (input.KeyChar)
@@ -86,8 +93,7 @@ namespace Battleship
                         }
                         else
                         {
-                            selectedShipsIndex++;
-                            selectedShipsIndex %= 5;
+                            selectedShipsIndex--;
                         }
                         break;
                     case 'd':
@@ -113,7 +119,7 @@ namespace Battleship
                         }
                         break;
                     default:
-                        ships[selectedShipsIndex].Move(input.KeyChar.ToString()); // If the input is not arrow keys, Ship.Move does nothing.
+                        ships[selectedShipsIndex].Move(input.Key.ToString()); // If the input is not arrow keys, Ship.Move does nothing.
                         break;
                 }
 

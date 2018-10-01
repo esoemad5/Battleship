@@ -40,7 +40,16 @@ namespace Battleship
             player2.SetUpShips();
             while (player1.HasActiveShips && player2.HasActiveShips)
             {
-
+                player1.Attack(new int[5]/*CHANGE THIS*/, player2);
+                if (!player2.HasActiveShips)
+                {
+                    //player1 wins
+                }
+                player2.Attack(new int[5]/*CHANGE THIS*/, player2);
+                if (!player1.HasActiveShips)
+                {
+                    //player2 wins
+                }
             }
         }
 

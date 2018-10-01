@@ -23,23 +23,40 @@ namespace Battleship
             hitsMisses = new string[boardSize][];
             shipPositions = new string[boardSize][];
 
-            for(int i = 0; i < boardSize; i++)
+            ResetBoard(); // if this line is commented out and the code below (which is the same as in ResetBoard) is used, no exceptions.
+            /*
+            for (int i = 0; i < boardSize; i++)
             {
                 hitsMisses[i] = new string[boardSize];
                 shipPositions[i] = new string[boardSize];
 
-                for(int j = 0; j < boardSize; j++)
+                for (int j = 0; j < boardSize; j++)
                 {
                     hitsMisses[i][j] = "-";
                     shipPositions[i][j] = "-";
                 }
             }
+            */
 
             this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ship Positions";
             spacesBetweenBoards = 6;
             spacesPerEntry = 3;
+        }
+        private void ResetBoard()
+        {
+            for (int i = 0; i < boardSize; i++)
+            {
+                hitsMisses[i] = new string[boardSize];
+                shipPositions[i] = new string[boardSize];
+
+                for (int j = 0; j < boardSize; j++)
+                {
+                    hitsMisses[i][j] = "-";
+                    shipPositions[i][j] = "-";
+                }
+            }
         }
         private void WriteHeaders()
         {
@@ -137,7 +154,7 @@ namespace Battleship
         public void updateHitsMisses(Object squareThatWasAttacked)
         {
         }
-        public void updateShipPositions(Ship[] ships, Object squareThatWasAttacked) // Does not deal with attacks!
+        public void updateShipPositions(Ship[] ships) // Does not deal with attacks!
         {
             foreach(Ship ship in ships)
             {
