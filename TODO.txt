@@ -18,3 +18,6 @@ Player.ShipsOverlap has not been tested with Player.SetUpShips
 HUGE BUG????
 fixed, kind of. Board stores stuff as (y, x). Is there a way to fix this??? Is probably iportant to stay true to conventions (all (y, x) or all (x, y)) to avoid confusion.
 	Ships should initialized as vertical, but are displayed as horizontal. Down is right, Right is down, Left is probably up, Up is probably left.
+
+User stories left:
+(10 points) As a player, I want the game to keep track of which ships I have completely destroyed, so that I can keep score of who is winning. 
