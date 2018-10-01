@@ -11,26 +11,25 @@ namespace Battleship
 
         public static bool Validate(string input, int boardSize)
         {
-            if(Char.ToUpper(input[0])-64 <= boardSize && Char.ToUpper(input[0]) - 64 >= 1)
+            try
             {
-                
-                try
+
+
+                if (Char.ToUpper(input[0]) - 64 <= boardSize && Char.ToUpper(input[0]) - 64 >= 1)
                 {
-                    if(Convert.ToInt32(input.Substring(1)) < boardSize)
+
+                    if (Convert.ToInt32(input.Substring(1)) < boardSize)
                     {
                         return true;
                     }
+
                 }
-                catch (FormatException)
-                {
-                    return false;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    return false;
-                }
+                return false;
             }
-            return false;
+            catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public static int[] Translate(string input)
