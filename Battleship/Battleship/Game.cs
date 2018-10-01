@@ -21,7 +21,7 @@ namespace Battleship
             player1 = new Player(player1Name, boardSize);
             player2 = new Player(player2Name, boardSize);
         }
-        private void PlayGame()
+        public void PlayGame()
         {
             player1.SetUpShips();
             player2.SetUpShips();
