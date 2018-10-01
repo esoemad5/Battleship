@@ -11,7 +11,11 @@ namespace Battleship
         static void Main(string[] args)
         {
             Player testPlayer = new Player("Player", 20);
-            testPlayer.SetUpShips();
+            //testPlayer.SetUpShips();
+            while (true)
+            {
+                Console.WriteLine("Converted to: {0}", Convert.ToInt32(Console.ReadLine().Substring(1)));
+            }
             
 
             /*
