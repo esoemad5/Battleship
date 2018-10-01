@@ -29,6 +29,7 @@ namespace Battleship
             {
                 player1.Board.Display();
                 player1.Attack(player1.DeclareAttackTarget(), player2);
+                player2.CheckIfNoRemainingShips();
                 if (!player2.HasActiveShips)
                 {
                     Console.WriteLine("{} wins!", player1.Name);
@@ -37,6 +38,7 @@ namespace Battleship
 
                 player2.Board.Display();
                 player2.Attack(player2.DeclareAttackTarget(), player1);
+                player2.CheckIfNoRemainingShips();
                 if (!player1.HasActiveShips)
                 {
                     Console.WriteLine("{} wins!", player2.Name);

@@ -25,6 +25,10 @@ namespace Battleship
                 {
                     return false;
                 }
+                catch (IndexOutOfRangeException)
+                {
+                    return false;
+                }
             }
             return false;
         }
