@@ -71,13 +71,16 @@ namespace Battleship
         {
             bool playerIsReady = false;
             int selectedShipsIndex = 0;
+            bool overlap = false;
             while (!playerIsReady)
             {
-
+                
                 Console.Clear();
                 board.Reset();
                 board.updateShipPositions(ships);
                 board.Display();
+                Console.WriteLine("Use arrow keys to move ships, r to rotate, a/d to select a different ship. Press p when finished.");
+                if (overlap) { Console.WriteLine("Please make sure no ships overlap!"); }
                 ConsoleKeyInfo input = Console.ReadKey();
 
                 switch (input.KeyChar)
@@ -102,7 +105,7 @@ namespace Battleship
                     case 'p':
                         if (ShipsOverlap())
                         {
-                            Console.WriteLine("Please make sure no ships overlap!");
+                            overlap = true;
                         }
                         else
                         {
