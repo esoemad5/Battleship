@@ -75,8 +75,8 @@ namespace Battleship
             {
 
                 //Console.Clear();
-                //board.updateShipPositions(ships);
-                //board.Display();
+               // board.updateShipPositions(ships);
+              //  board.Display();
                 Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111");
                 foreach (Ship ship in Ships)
                 {

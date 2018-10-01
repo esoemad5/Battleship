@@ -20,6 +20,7 @@ namespace Battleship
         public readonly string[] alphabeticCoordinates = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }; // Going larger than 26x26 is not possible at this time.
         public Board(int boardSize)
         {
+            this.boardSize = boardSize;
             hitsMisses = new string[boardSize][];
             shipPositions = new string[boardSize][];
 
@@ -37,8 +38,6 @@ namespace Battleship
                 }
             }
             */
-
-            this.boardSize = boardSize;
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ship Positions";
             spacesBetweenBoards = 6;
@@ -57,6 +56,7 @@ namespace Battleship
                     shipPositions[i][j] = "-";
                 }
             }
+            
         }
         private void WriteHeaders()
         {
@@ -123,7 +123,7 @@ namespace Battleship
 
                 for (int j = 0; j < hitsMisses.Length; j++)
                 {
-                    Console.Write(hitsMisses[j][i]);
+                    Console.Write(hitsMisses[j][i]);//////////////////////////////////////////////////////////////////////////////////////////////
                     WriteSpacesBetweenEntries(hitsMisses[j][i].Length);
                 }
                 WriteSpacesBetweenBoards();
@@ -164,7 +164,7 @@ namespace Battleship
                     {
                         if (ship.SectionIsDamaged[i])
                         {
-                            shipPositions[ship.Nose[0] + i][ship.Nose[1]] = "X";
+                            shipPositions[ship.Location[i][0]][ship.Nose[1]] = "X";
                         }
                         else
                         {

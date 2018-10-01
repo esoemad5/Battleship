@@ -12,12 +12,12 @@ namespace Battleship
         {
             Player testPlayer = new Player("Player", 20);
             //testPlayer.Board.updateShipPositions(testPlayer.Ships);
-           // testPlayer.Board.Display();
+            testPlayer.Board.Display();
             foreach(Ship ship in testPlayer.Ships)
             {
                //ShowLocation(ship.Location);
             }
-            testPlayer.SetUpShips();
+           // testPlayer.SetUpShips();
 
     
         }
