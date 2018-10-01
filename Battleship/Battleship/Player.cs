@@ -27,12 +27,16 @@ namespace Battleship
         public Player (string name, int boardSize)
         {
             this.name = name;
+            ships = new Ship[1];
+            ships[0] = new Ship(2, "Patrol Boat", boardSize);
+            /*
             ships = new Ship[5];
             ships[0] = new Ship(5, "Carrier", boardSize);
             ships[1] = new Ship(4, "Battleship", boardSize);
             ships[2] = new Ship(3, "Destroyer", boardSize);
             ships[3] = new Ship(3, "Submarine", boardSize);
             ships[4] = new Ship(2, "Patrol Boat", boardSize);
+            */
             MoveShipsToDefaultLocations();
             board = new Board(boardSize);
             hasActiveShips = true;
@@ -87,8 +91,12 @@ namespace Battleship
         {
             foreach(Ship ship in ships)
             {
+                ship.CheckIfSunk();
+                Console.WriteLine("Checking: {0}", ship.Name);
                 if (!ship.IsSunk)
                 {
+                    Console.WriteLine("{0} is Active!", ship.Name);
+                    Console.ReadLine();
                     return;
                 }
             }
@@ -115,7 +123,7 @@ namespace Battleship
                     case 'a':
                         if(selectedShipsIndex == 0)
                         {
-                            selectedShipsIndex = 4;
+                            selectedShipsIndex = ships.Length-1;
                         }
                         else
                         {
@@ -124,7 +132,7 @@ namespace Battleship
                         break;
                     case 'd':
                         selectedShipsIndex++;
-                        selectedShipsIndex %= 5;
+                        selectedShipsIndex %= ships.Length;
                         break;
                     case 'r':
                         ships[selectedShipsIndex].Rotate();

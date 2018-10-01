@@ -16,7 +16,9 @@ namespace Battleship
         {
             boardSize = 20;
             // Console.WriteLine(); boardSize = Console.ReadLine(); if we wanted to change the size of the board
+            Console.WriteLine("Player 1, please enter your name:");
             string player1Name = Console.ReadLine();
+            Console.WriteLine("Player 2, please enter your name:");
             string player2Name = Console.ReadLine();
             player1 = new Player(player1Name, boardSize);
             player2 = new Player(player2Name, boardSize);
@@ -32,16 +34,16 @@ namespace Battleship
                 player2.CheckIfNoRemainingShips();
                 if (!player2.HasActiveShips)
                 {
-                    Console.WriteLine("{} wins!", player1.Name);
+                    Console.WriteLine("{0} wins!", player1.Name);
                     return;
                 }
 
                 player2.Board.Display();
                 player2.Attack(player2.DeclareAttackTarget(), player1);
-                player2.CheckIfNoRemainingShips();
+                player1.CheckIfNoRemainingShips();
                 if (!player1.HasActiveShips)
                 {
-                    Console.WriteLine("{} wins!", player2.Name);
+                    Console.WriteLine("{0} wins!", player2.Name);
                     return;
                 }
             }
