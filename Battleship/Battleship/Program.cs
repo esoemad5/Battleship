@@ -11,12 +11,12 @@ namespace Battleship
         static void Main(string[] args)
         {
             Player testPlayer = new Player("Player", 20);
-            testPlayer.Board.updateShipPositions(testPlayer.Ships);
+            testPlayer.Board.UpdateShipPositions(testPlayer.Ships);
             testPlayer.Board.Display();
             Console.ReadKey();
             int[] arr = new int[] { 2, 3 };
             testPlayer.Attack(arr, testPlayer);
-            testPlayer.Board.updateShipPositions(testPlayer.Ships);
+            testPlayer.Board.UpdateShipPositions(testPlayer.Ships);
             testPlayer.Board.Display();
             //foreach(Ship ship in testPlayer.Ships)
             {

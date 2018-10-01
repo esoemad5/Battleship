@@ -11,7 +11,7 @@ namespace Battleship
         private int test;
         public int Test { set => test = value; }
         private string[][] hitsMisses;
-        public string[][] HitsMisses { get => hitsMisses; set{ hitsMisses = value;} }
+        public string[][] HitsMisses { get => hitsMisses; }
         private string[][] shipPositions;
         private int boardSize;
 
@@ -141,10 +141,10 @@ namespace Battleship
         /* TODO: Both of these functions will recieve information from Player.Attack
          * squareThatWasAttacked should NOT be of type Object
          */
-        public void updateHitsMisses()
+        public void UpdateHitsMisses()
         {
         }
-        public void updateShipPositions(Ship[] ships) // Does not deal with attacks!
+        public void UpdateShipPositions(Ship[] ships) // Does not deal with attacks!
         {
             foreach(Ship ship in ships)
             {

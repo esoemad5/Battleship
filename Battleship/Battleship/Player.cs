@@ -59,16 +59,20 @@ namespace Battleship
                     {
                         ship.SectionIsDamaged[i] = true;
                         board.HitsMisses[square[0]][square[1]] = "X";
+
+                        board.UpdateHitsMisses();
+                        opponent.board.UpdateShipPositions(opponent.ships);
                         return;
                     }
                     else
                     {
                         board.HitsMisses[square[0]][square[1]] = "O";
+
                     }
                 }
             }
-            board.updateHitsMisses();
-            opponent.board.updateShipPositions(opponent.ships);
+            board.UpdateHitsMisses();
+            opponent.board.UpdateShipPositions(opponent.ships);
         }
         public void CheckIfNoRemainingShips()
         {
@@ -91,7 +95,7 @@ namespace Battleship
                 
                 Console.Clear();
                 board.Reset();
-                board.updateShipPositions(ships);
+                board.UpdateShipPositions(ships);
                 board.Display();
                 Console.WriteLine("Use arrow keys to move ships, r to rotate, a/d to select a different ship. Press p when finished.");
                 if (overlap) { Console.WriteLine("Please make sure no ships overlap!"); }
