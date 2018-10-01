@@ -18,7 +18,7 @@ namespace Battleship
                 if (Char.ToUpper(input[0]) - 64 <= boardSize && Char.ToUpper(input[0]) - 64 >= 1)
                 {
 
-                    if (Convert.ToInt32(input.Substring(1)) < boardSize)
+                    if (Convert.ToInt32(input.Substring(1)) <= boardSize)
                     {
                         return true;
                     }
