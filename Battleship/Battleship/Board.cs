@@ -13,7 +13,8 @@ namespace Battleship
         private string[][] hitsMisses;
         public string[][] HitsMisses { get => hitsMisses; }
         private string[][] shipPositions;
-        private int boardSize;
+        private int size;
+        public int Size { get => size; }
 
         private string firstBoardLabel;
         private string secondBoardLabel;
@@ -23,7 +24,7 @@ namespace Battleship
         public readonly string[] alphabeticCoordinates = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }; // Going larger than 26x26 is not possible at this time.
         public Board(int boardSize)
         {
-            this.boardSize = boardSize;
+            size = boardSize;
             hitsMisses = new string[boardSize][];
             shipPositions = new string[boardSize][];
 
@@ -35,12 +36,12 @@ namespace Battleship
         }
         public void Reset()
         {
-            for (int i = 0; i < boardSize; i++)
+            for (int i = 0; i < size; i++)
             {
-                hitsMisses[i] = new string[boardSize];
-                shipPositions[i] = new string[boardSize];
+                hitsMisses[i] = new string[size];
+                shipPositions[i] = new string[size];
 
-                for (int j = 0; j < boardSize; j++)
+                for (int j = 0; j < size; j++)
                 {
                     hitsMisses[i][j] = "-";
                     shipPositions[i][j] = "-";
@@ -50,7 +51,7 @@ namespace Battleship
         }
         private void WriteHeaders()
         {
-            int halfwayTHroughBoardSection =  spacesPerEntry* boardSize / 2;
+            int halfwayTHroughBoardSection =  spacesPerEntry* size / 2;
 
             int spacesBeforeFirstBoardLabel = spacesPerEntry + halfwayTHroughBoardSection - (firstBoardLabel.Length / 2);
             for (int i = 0; i < spacesBeforeFirstBoardLabel; i++)
@@ -70,7 +71,7 @@ namespace Battleship
         private void WriteNumericalCoordinates()
         {
             WriteSpacesBetweenEntries(0);
-            for(int i = 0; i < boardSize; i++)
+            for(int i = 0; i < size; i++)
             {
                 if(i < 9)
                 {
@@ -106,7 +107,7 @@ namespace Battleship
         }
         private void WriteBoardSectionAndAlphabeticCoordinates()
         {
-            for (int i = 0; i < boardSize; i++)
+            for (int i = 0; i < size; i++)
             {
                 Console.Write(alphabeticCoordinates[i]);
                 WriteSpacesBetweenEntries(alphabeticCoordinates[i].Length);

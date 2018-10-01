@@ -50,11 +50,13 @@ namespace Battleship
         }
         public int[] DeclareAttackTarget()
         {
-            Console.WriteLine("{0}, which location would you like to attack?", name);
-            string input;
-            //while()
-            input = Console.ReadLine();
-            //validate intput
+            
+            string input = " ";
+            while (!InputProcessing.Validate(input, board.Size))
+            {
+                Console.WriteLine("{0}, which location would you like to attack?", name);
+                input = Console.ReadLine();
+            }
             return InputProcessing.Translate(input);
         }
         public void Attack(int[] square, Player opponent)
