@@ -74,14 +74,10 @@ namespace Battleship
             while (!playerIsReady)
             {
 
-                //Console.Clear();
-               // board.updateShipPositions(ships);
-              //  board.Display();
-                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111");
-                foreach (Ship ship in Ships)
-                {
-                    Program.ShowLocation(ship.Location);
-                }
+                Console.Clear();
+                board.Reset();
+                board.updateShipPositions(ships);
+                board.Display();
                 ConsoleKeyInfo input = Console.ReadKey();
 
                 switch (input.KeyChar)

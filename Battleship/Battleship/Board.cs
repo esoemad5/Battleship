@@ -24,26 +24,13 @@ namespace Battleship
             hitsMisses = new string[boardSize][];
             shipPositions = new string[boardSize][];
 
-            ResetBoard(); // if this line is commented out and the code below (which is the same as in ResetBoard) is used, no exceptions.
-            /*
-            for (int i = 0; i < boardSize; i++)
-            {
-                hitsMisses[i] = new string[boardSize];
-                shipPositions[i] = new string[boardSize];
-
-                for (int j = 0; j < boardSize; j++)
-                {
-                    hitsMisses[i][j] = "-";
-                    shipPositions[i][j] = "-";
-                }
-            }
-            */
+            Reset();
             firstBoardLabel = "Hits/Misses";
             secondBoardLabel = "Ship Positions";
             spacesBetweenBoards = 6;
             spacesPerEntry = 3;
         }
-        private void ResetBoard()
+        public void Reset()
         {
             for (int i = 0; i < boardSize; i++)
             {
@@ -123,7 +110,7 @@ namespace Battleship
 
                 for (int j = 0; j < hitsMisses.Length; j++)
                 {
-                    Console.Write(hitsMisses[j][i]);//////////////////////////////////////////////////////////////////////////////////////////////
+                    Console.Write(hitsMisses[j][i]);
                     WriteSpacesBetweenEntries(hitsMisses[j][i].Length);
                 }
                 WriteSpacesBetweenBoards();
@@ -164,7 +151,7 @@ namespace Battleship
                     {
                         if (ship.SectionIsDamaged[i])
                         {
-                            shipPositions[ship.Location[i][0]][ship.Nose[1]] = "X";
+                            shipPositions[ship.Nose[0] + i][ship.Nose[1]] = "X";
                         }
                         else
                         {
