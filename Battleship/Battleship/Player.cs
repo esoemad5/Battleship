@@ -55,7 +55,7 @@ namespace Battleship
             //while()
             input = Console.ReadLine();
             //validate intput
-            //translate input
+            return InputProcessing.Translate(input);
         }
         public void Attack(int[] square, Player opponent)
         {
