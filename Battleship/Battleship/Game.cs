@@ -36,7 +36,7 @@ namespace Battleship
                 }
 
                 player2.Board.Display();
-                player2.Attack(player2.DeclareAttackTarget(), player2);
+                player2.Attack(player2.DeclareAttackTarget(), player1);
                 if (!player1.HasActiveShips)
                 {
                     Console.WriteLine("{} wins!", player2.Name);
