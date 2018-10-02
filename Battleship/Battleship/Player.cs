@@ -10,7 +10,7 @@ namespace Battleship
     {
         private string name;
         public string Name { get => name; }
-        private Board board; // May need to change
+        private Board board; 
         public Board Board { get => board; }
         private Ship[] ships;
         public Ship[] Ships { get => ships; }

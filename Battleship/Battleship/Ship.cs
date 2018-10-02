@@ -105,7 +105,6 @@ namespace Battleship
         }
         public void Move(string direction)
         {
-            // Console.WriteLine("{0}, {1}", name, direction); TODO: remove this line!!!!
             switch (direction)
             {
                 case "UpArrow":

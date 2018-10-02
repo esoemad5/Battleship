@@ -12,28 +12,8 @@ namespace Battleship
         {
             Game game = new Game();
             game.PlayGame();
-            
-
-            /*
-            for(int i = 0; i < testPlayer.Board.alphabeticCoordinates.Length; i++)
-            {
-                Console.WriteLine( testPlayer.Board.alphabeticCoordinates[i].ToUpper().ToCharArray()[0] - 64);
-            }
-            if ('A' > 30)
-            {
-                Console.WriteLine("Hello World!");
-            }
-            */
-
-            /*
-            var stringCollection = new SampleCollection<string>();
-            stringCollection[0, 1] = "Hello, World";
-            Console.WriteLine(stringCollection[0, 1]);
-            */
-
-
         }
-        public static void ShowLocation(int[][] input)
+    public static void ShowLocation(int[][] input) // Writes all the squares a ship occupies. Only used for debugging.
         {
             foreach (int[] square in input)
             {
@@ -43,37 +23,5 @@ namespace Battleship
             Console.WriteLine("---------------------------");
         }
     }
-    class SampleCollection<T>
-    {
-        // Declare an array to store the data elements.
-        //private T[] arr = new T[100];
-        private T[][] arr2 = new T[100][];
 
-        // Define the indexer to allow client code to use [] notation.
-        public T this[int i, int j]
-        {
-            get { return arr2[i][j]; }
-            set { arr2[i][j] = value; }
-        }
-
-    }
-
-    class SampleCollection2<T>
-    {
-        // Declare an array to store the data elements.
-        //private T[] arr = new T[100];
-        private T[][] arr2 = new T[100][];
-
-        // Define the indexer to allow client code to use [] notation.
-        /*
-        public T this[int i][int j]
-        {
-            get { return arr2[i][j]; }
-            set { arr2[i][j] = value; }
-        }
-        */
-
-
-
-    }
 }
