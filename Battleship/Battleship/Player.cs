@@ -69,6 +69,7 @@ namespace Battleship
                         board.HitsMisses[square[0]][square[1]] = "X";
 
                         opponent.board.UpdateShipPositions(opponent.ships);
+                        ship.CheckIfSunk();
 
                         board.Display();
                         Console.WriteLine("Hit!");
@@ -78,7 +79,6 @@ namespace Battleship
                             Console.WriteLine("You sunk my {0}!!", ship.Name);
                             shipsIveSunk.Add(ship.Name);
                         }
-                        Console.WriteLine("No if");
                         return;
                     }
                     else
