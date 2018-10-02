@@ -119,6 +119,7 @@ namespace Battleship
                 board.Reset();
                 board.UpdateShipPositions(ships);
                 board.Display();
+                Console.WriteLine("{0}'s ships. Make sure your opponent doesn't watch you prepare your fleet!", name);
                 Console.WriteLine("Use arrow keys to move ships, r to rotate, a/d to select a different ship. Press p when finished.");
                 if (overlap) { Console.WriteLine("Please make sure no ships overlap!"); }
                 ConsoleKeyInfo input = Console.ReadKey();

@@ -16,7 +16,8 @@ namespace Battleship
         {
             boardSize = 20; // No custom-sized boards
 
-
+            Console.WriteLine("Welcome to battleship. The ultimate game of naval combat.");
+            Console.WriteLine();
             Console.WriteLine("Player 1, please enter your name:");
             string player1Name = Console.ReadLine();
             Console.WriteLine("Player 2, please enter your name:");
