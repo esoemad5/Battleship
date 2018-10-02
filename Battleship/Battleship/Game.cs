@@ -27,34 +27,31 @@ namespace Battleship
         {
             player1.SetUpShips();
             player2.SetUpShips();
-            while (player1.HasActiveShips && player2.HasActiveShips)
+            bool bothPlayersHaveActiveShips = true;
+            while (bothPlayersHaveActiveShips)
             {
-                player1.Board.Display();
-                player1.Attack(player1.DeclareAttackTarget(), player2);
-                player2.CheckIfNoRemainingShips();
-                if (!player2.HasActiveShips)
-                {
-                    Console.WriteLine("{0} wins!", player1.Name);
-                    return;
-                }
-                else
-                {
-                    Console.ReadLine();
-                }
+                bothPlayersHaveActiveShips = Turn(player1, player2);
+                bothPlayersHaveActiveShips = Turn(player2, player1);
 
-                player2.Board.Display();
-                player2.Attack(player2.DeclareAttackTarget(), player1);
-                player1.CheckIfNoRemainingShips();
-                if (!player1.HasActiveShips)
-                {
-                    Console.WriteLine("{0} wins!", player2.Name);
-                    return;
-                }
             }
         }
-        private void Turn(Player playerA, Player playerB)
+        private bool Turn(Player playerA, Player playerB)
         {
-            playerA.SetUpShips();
+            playerA.Board.Display();
+            playerA.Attack(playerA.DeclareAttackTarget(), playerB);
+            playerB.CheckIfNoRemainingShips();
+            if (!playerB.HasActiveShips)
+            {
+                Console.WriteLine("{0} wins!", playerA.Name);
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Press enter to pass the turn to {0}", playerB.Name);
+                Console.ReadLine();
+            }
+            return true;
         }
+
     }
 }

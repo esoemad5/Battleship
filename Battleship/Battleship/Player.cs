@@ -17,12 +17,8 @@ namespace Battleship
 
         private bool hasActiveShips;
         public bool HasActiveShips { get => hasActiveShips; }
-        /* How to store player Ships?
-         * 1 array of booleans for active/sunk
-         * 2 arrays of Ship objects (another way to access location and dammage)
-         * Give ship a boolean for active/sunk
-         */
-        // 2D array of Player's misses/hits/un-attacked, should this be part of the Board class? YES!
+        private List<string> shipsIveSunk;
+        public List<string> ShipsIveSunk { get => shipsIveSunk; }
 
         public Player (string name, int boardSize)
         {
@@ -36,6 +32,7 @@ namespace Battleship
             MoveShipsToDefaultLocations();
             board = new Board(boardSize);
             hasActiveShips = true;
+            shipsIveSunk = new List<string>();
         }
         private void MoveShipsToDefaultLocations()
         {
@@ -75,6 +72,13 @@ namespace Battleship
 
                         board.Display();
                         Console.WriteLine("Hit!");
+
+                        if (ship.IsSunk)
+                        {
+                            Console.WriteLine("You sunk my {0}!!", ship.Name);
+                            shipsIveSunk.Add(ship.Name);
+                        }
+                        Console.WriteLine("No if");
                         return;
                     }
                     else
@@ -82,12 +86,14 @@ namespace Battleship
                         board.HitsMisses[square[0]][square[1]] = "O";
                         opponent.Board.ShipPositions[square[0]][square[1]] = "O";
 
-                        board.Display();
-                        Console.WriteLine("Miss!");
+                        
 
                     }
                 }
+                
             }
+            board.Display();
+            Console.WriteLine("Miss!");
             opponent.board.UpdateShipPositions(opponent.ships);
         }
         public void CheckIfNoRemainingShips()
