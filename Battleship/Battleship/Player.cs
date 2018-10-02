@@ -72,12 +72,18 @@ namespace Battleship
                         board.HitsMisses[square[0]][square[1]] = "X";
 
                         opponent.board.UpdateShipPositions(opponent.ships);
+
+                        board.Display();
+                        Console.WriteLine("Hit!");
                         return;
                     }
                     else
                     {
                         board.HitsMisses[square[0]][square[1]] = "O";
                         opponent.Board.ShipPositions[square[0]][square[1]] = "O";
+
+                        board.Display();
+                        Console.WriteLine("Miss!");
 
                     }
                 }

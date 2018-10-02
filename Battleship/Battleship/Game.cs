@@ -37,6 +37,10 @@ namespace Battleship
                     Console.WriteLine("{0} wins!", player1.Name);
                     return;
                 }
+                else
+                {
+                    Console.ReadLine();
+                }
 
                 player2.Board.Display();
                 player2.Attack(player2.DeclareAttackTarget(), player1);
@@ -47,6 +51,10 @@ namespace Battleship
                     return;
                 }
             }
+        }
+        private void Turn(Player playerA, Player playerB)
+        {
+            playerA.SetUpShips();
         }
     }
 }
