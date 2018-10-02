@@ -23,12 +23,11 @@ namespace Battleship
         public Player (string name, int boardSize)
         {
             this.name = name;
-            ships = new Ship[5];
+            ships = new Ship[4];
             ships[0] = new Ship(5, "Carrier", boardSize);
             ships[1] = new Ship(4, "Battleship", boardSize);
-            ships[2] = new Ship(3, "Destroyer", boardSize);
-            ships[3] = new Ship(3, "Submarine", boardSize);
-            ships[4] = new Ship(2, "Patrol Boat", boardSize);
+            ships[2] = new Ship(3, "Submarine", boardSize);
+            ships[3] = new Ship(2, "Destroyer", boardSize);
             MoveShipsToDefaultLocations();
             board = new Board(boardSize);
             hasActiveShips = true;
