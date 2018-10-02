@@ -38,6 +38,16 @@ namespace Battleship
         private bool Turn(Player playerA, Player playerB)
         {
             playerA.Board.Display();
+            Console.WriteLine("Ships I've sunk so far:");
+            foreach(string ship in playerA.ShipsIveSunk)
+            {
+                Console.WriteLine("{0}", ship);
+            }
+            if(playerA.ShipsIveSunk.Count == 0)
+            {
+                Console.WriteLine("None yet :(");
+            }
+            Console.WriteLine();
             playerA.Attack(playerA.DeclareAttackTarget(), playerB);
             playerB.CheckIfNoRemainingShips();
             if (!playerB.HasActiveShips)
